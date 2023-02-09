@@ -3,6 +3,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import boto3
+from botocore.exceptions import ClientError
 from decouple import config
 
 DELIMITER = "/"
@@ -40,6 +41,27 @@ def list_ouvrages_en_preparation():
     }
 
     return sorted(ouvrages - FOLDERS_TO_IGNORE)
+
+
+def get_document(ouvrage_name: str):
+    s3_client = boto3.client(
+        "s3",
+        aws_access_key_id=AWS_ACCESS_KEY_ID,
+        aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+        endpoint_url=S3_ENDPOINT,
+    )
+    try:
+        response = s3_client.generate_presigned_url(
+            "get_object",
+            Params={
+                "Bucket": S3_BUCKET_REFERENTIEL_PREPARATION,
+                "Key": f"{ouvrage_name}/xml/document.xml",
+            },
+            ExpiresIn=300,
+        )
+    except ClientError as e:
+        return None
+    return response
 
 
 def list_generated_documents_by_ouvrages():

@@ -17,6 +17,7 @@ from django.views.generic import FormView
 from .forms import UploadDirectoryFileForm, UploadFileForm
 from .s3 import (
     bootstrap_assets,
+    get_document,
     list_generated_documents_by_ouvrages,
     list_ouvrages_en_preparation,
 )
@@ -161,6 +162,12 @@ def publication(request, generation_id):
         (publication_path / "document.pdf").open("rb"),
         filename=f"{publication_path.name}.pdf",
     )
+
+
+@require_GET
+def get_document_xml(request, ouvrage):
+
+    return HttpResponse(get_document(ouvrage))
 
 
 def _get_publication_path(generation_id) -> Path:

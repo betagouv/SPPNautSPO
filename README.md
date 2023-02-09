@@ -2,6 +2,8 @@
 
 Modernisation de la chaîne de production des publications nautiques
 
+Ce projet est open-source sous license EUPL
+
 ## Installer et exécuter SPPNaut et le générateur de PDF sur un poste local
 
 ### Pré-requis
@@ -23,9 +25,10 @@ La base de données est utilisée pour l'administration des tâches déléguées
 ### Variables d'environnements
 
 Initialiser les 3 variables d'environnement suivantes dans le fichier [.env](PDFGenerator/http/.env) :
-- S3_BUCKET_GENERATED_PRODUCTION
-- AWS_ACCESS_KEY_ID
-- AWS_SECRET_ACCESS_KEY
+
+-   S3_BUCKET_GENERATED_PRODUCTION
+-   AWS_ACCESS_KEY_ID
+-   AWS_SECRET_ACCESS_KEY
 
 ### Readme PDFGenerator/http
 

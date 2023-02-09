@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>SPPNaut Generator</title>
+    </head>
+    <body>
+        {{message}}
+        <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input
+                type="file"
+                id="{{form.file.id_for_label}}"
+                name="{{form.file.html_name}}"
+                accept="text/xml"
+            />
+
+            <button type="submit">Générer le PDF</button>
+        </form>
+    </body>
+</html>

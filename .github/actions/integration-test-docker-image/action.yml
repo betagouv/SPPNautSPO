@@ -1,0 +1,24 @@
+name: Integration test docker image
+
+inputs:
+  aws_access_key_id:
+    required: true
+  aws_secret_access_key:
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Set environment
+      shell: bash
+      run: |
+        cd PDFGenerator/http
+        cp .env.template .env
+        echo AWS_ACCESS_KEY_ID=${{ inputs.aws_access_key_id }} >> .env
+        echo AWS_SECRET_ACCESS_KEY=${{ inputs.aws_secret_access_key }} >> .env
+    - name: Test
+      shell: bash
+      run: |
+        cd PDFGenerator/http
+        pip install --require-hashes --no-deps -r requirements.txt -r dev-requirements.txt
+        pytest integration_tests

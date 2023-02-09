@@ -1,0 +1,4 @@
+awscli
+python-decouple
+sentry-sdk
+watchdog

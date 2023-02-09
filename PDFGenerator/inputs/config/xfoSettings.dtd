@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the root element -->
+<!ELEMENT formatter-config
+        ( formatter-settings?
+        , font-settings?
+        , pdf-settings?
+        , svg-settings?
+        , text-settings?
+        , mathml-settings?
+        , xslt-settings?
+        , rxe-settings?
+        )
+>
+
+<!ENTITY % float     "CDATA"><!-- number without unit -->
+<!ENTITY % abslength "CDATA"><!-- number with unit
+                                  unit is one of followings
+                                      cm : centimeter
+                                      mm : millimeter, 1 millimeter = 1/10 centimeter
+                                      in : inch, 1 inch = 2.54 centimeters
+                                      pt : point, 1 point = 1/72 inch
+                                      pc : pica, 1 pica = 12 points
+                               -->
+<!ENTITY % length    "CDATA"><!-- number with unit
+                                  unit is one of followings
+                                      cm : centimeter
+                                      mm : millimeter, 1 millimeter = 1/10 centimeter
+                                      in : inch, 1 inch = 2.54 centimeters
+                                      pt : point, 1 point = 1/72 inch
+                                      pc : pica, 1 pica = 12 points
+                                      px : pixel
+                                      em : relative length
+                               -->
+
+<!ENTITY % integer     "CDATA"><!-- integer with/without sign -->
+<!ENTITY % uinteger    "CDATA"><!-- integer without sign -->
+<!ENTITY % byteinteger "CDATA"><!-- uinteger of 0 to 225 -->
+
+<!ENTITY % font-family "CDATA"><!-- font family -->
+
+<!ENTITY % lang "CDATA"><!-- language code follows RFC1766 -->
+
+<!ENTITY % script "CDATA"><!-- script code follows RFC15924 -->
+
+<!ENTITY % color "CDATA"><!-- color name or #XXXXXX or #XXX -->
+
+<!ENTITY % bool "(true|false)" >
+
+<!ENTITY % URI "CDATA"><!-- universal resource identifier, RFC1630 -->
+
+<!-- formatter settings -->
+
+<!ELEMENT formatter-settings EMPTY >
+<!ATTLIST formatter-settings default-page-width       %abslength; "210mm">
+<!ATTLIST formatter-settings default-page-height      %abslength; "297mm">
+<!ATTLIST formatter-settings default-font-size        %abslength; "10pt">
+<!ATTLIST formatter-settings normal-line-height           %float; "1.2"><!-- em -->
+<!ATTLIST formatter-settings default-color                %color; "#000000">
+<!ATTLIST formatter-settings border-thin-width        %abslength; "1pt">
+<!ATTLIST formatter-settings border-medium-width      %abslength; "3pt">
+<!ATTLIST formatter-settings border-thick-width       %abslength; "5pt">
+<!ATTLIST formatter-settings printer-mark-length      %abslength; "10mm">
+<!ATTLIST formatter-settings printer-mark-margin      %abslength; "3mm">
+<!ATTLIST formatter-settings pxpi                      %uinteger; "96"><!-- dpi -->
+<!ATTLIST formatter-settings default-lang                  %lang; "">
+<!ATTLIST formatter-settings default-CJK                   %lang; #IMPLIED>
+<!ATTLIST formatter-settings punctuation-trim              %bool; "true">
+  <!-- value of axf:punctuation-trim="auto"
+         true  means "both"
+         false means "none" -->
+<!ATTLIST formatter-settings punctuation-spacing          %float; "0.5"><!-- em -->
+<!ATTLIST formatter-settings text-autospace                %bool; "true">
+  <!-- value of axf:text-autospace="auto"
+         true  means "ideograph-numeric ideograph-alpha"
+         false means "none" -->
+<!ATTLIST formatter-settings text-autospace-width         %float; "0.25"><!-- em -->
+<!ATTLIST formatter-settings append-non-starter-characters  CDATA "">
+   <!-- except for white space
+                   closing parenthesis
+                   punctuations -->
+<!ATTLIST formatter-settings append-non-end-of-line-characters CDATA "">
+   <!-- except for white space
+                   opening parenthesis
+                   punctuations -->
+<!ATTLIST formatter-settings vertical-underline-side (auto|left|right) "auto">
+<!ATTLIST formatter-settings text-kashida-space        %uinteger; "100"><!-- % : 0 to 100 -->
+<!ATTLIST formatter-settings fixed-width-space-treatment   %bool; "true">
+<!ATTLIST formatter-settings thin-space-width             %float; "0.2"><!-- em -->
+<!ATTLIST formatter-settings hair-space-width             %float; "0.1"><!-- em -->
+<!ATTLIST formatter-settings SVGViewer                     %bool; "false">
+<!ATTLIST formatter-settings MathPlayer                    %bool; "false">
+<!ATTLIST formatter-settings WindowsFontAPI              %script; "">
+<!ATTLIST formatter-settings HyphenationOption             %bool; "false">
+<!ATTLIST formatter-settings PrinterOrientation   (auto|0|90|270) "auto">
+<!ATTLIST formatter-settings PscriptPassThrough            %bool; "true">
+<!ATTLIST formatter-settings sRGB                           %URI; "">
+<!ATTLIST formatter-settings two-pass-formatting            %bool; "false">
+<!ATTLIST formatter-settings text-justify-mode              %uinteger; "5">
+
+<!-- font settings -->
+
+<!ELEMENT font-settings (script-font|font-alias)* >
+<!ATTLIST font-settings default-font-family (serif|sans-serif|monospace|cursive|fantasy) "serif">
+
+<!ELEMENT script-font EMPTY >
+<!ATTLIST script-font script      %script; "">
+<!ATTLIST script-font serif       %font-family; #IMPLIED>
+<!ATTLIST script-font sans-serif  %font-family; #IMPLIED>
+<!ATTLIST script-font monospace   %font-family; #IMPLIED>
+<!ATTLIST script-font cursive     %font-family; #IMPLIED>
+<!ATTLIST script-font fantasy     %font-family; #IMPLIED>
+
+<!ELEMENT font-alias EMPTY >
+<!ATTLIST font-alias src          %font-family; #IMPLIED>
+<!ATTLIST font-alias dst          %font-family; #IMPLIED>
+
+<!-- PDF output settings -->
+
+<!ELEMENT pdf-settings (embed-font)* >
+<!ATTLIST pdf-settings pdf-version             (1.3|1.4|1.5|1.6) "1.4">
+<!ATTLIST pdf-settings linearized                     %bool; "true">
+<!ATTLIST pdf-settings rgb-conversion  (none|black|gray|all) "none">
+<!ATTLIST pdf-settings encryption-level             (40|128) "128">
+<!ATTLIST pdf-settings embed-all-fonts  (true|false|base14) "false">
+<!ATTLIST pdf-settings error-on-embed-fault           %bool; "true">
+<!ATTLIST pdf-settings error-on-missing-glyph         %bool; "false">
+<!ATTLIST pdf-settings user-password                   CDATA ""><!-- up to 32 bytes -->
+<!ATTLIST pdf-settings master-password                 CDATA ""><!-- up to 32 bytes -->
+<!ATTLIST pdf-settings owner-password                 CDATA ""><!-- up to 32 bytes -->
+<!ATTLIST pdf-settings printing-allowed (high-resolution|low-resolution|none) "high-resolution">
+<!ATTLIST pdf-settings no-changing                    %bool; "false">
+<!ATTLIST pdf-settings no-content-copying             %bool; "false">
+<!ATTLIST pdf-settings no-adding-or-changing-comments %bool; "false">
+<!ATTLIST pdf-settings no-fill-form                   %bool; "false">
+<!ATTLIST pdf-settings no-accessibility               %bool; "false">
+<!ATTLIST pdf-settings no-assemble-doc                %bool; "false">
+<!ATTLIST pdf-settings no-printing                    %bool; "false">
+<!ATTLIST pdf-settings image-compression  (auto|jpeg|zlib|jpeg2000) "auto">
+<!ATTLIST pdf-settings image-downsampling (none|average|bicubic|subsampling) "none">
+<!ATTLIST pdf-settings image-downsampling-above-dpi  %uinteger; "108"><!-- dpi -->
+<!ATTLIST pdf-settings image-downsampling-target-dpi %uinteger; "72"><!-- dpi -->
+<!ATTLIST pdf-settings jpeg-quality                  %uinteger; "80"><!-- % : 0 to 100 -->
+<!ATTLIST pdf-settings image-color-profile               %bool; "true">
+<!ATTLIST pdf-settings grayscale-compression  (auto|jpeg|zlib|jpeg2000) "auto">
+<!ATTLIST pdf-settings grayscale-downsampling (none|average|bicubic|subsampling) "none">
+<!ATTLIST pdf-settings grayscale-downsampling-above-dpi  %uinteger; "108"><!-- dpi -->
+<!ATTLIST pdf-settings grayscale-downsampling-target-dpi %uinteger; "72"><!-- dpi -->
+<!ATTLIST pdf-settings grayscale-jpeg-quality            %uinteger; "80"><!-- % : 0 to 100 -->
+<!ATTLIST pdf-settings monochrome-compression (ccitt4|ccitt3|runlength|zlib|none) "ccitt4">
+<!ATTLIST pdf-settings monochrome-downsampling (none|average|bicubic|subsampling) "none">
+<!ATTLIST pdf-settings monochrome-downsampling-above-dpi  %uinteger; "450"><!-- dpi -->
+<!ATTLIST pdf-settings monochrome-downsampling-target-dpi %uinteger; "300"><!-- dpi -->
+<!ATTLIST pdf-settings rasterize-resolution       %uinteger; "108"><!-- dpi -->
+<!ATTLIST pdf-settings use-launch-for-relative-uri    %bool; "true">
+<!ATTLIST pdf-settings text-and-lineart-compression   %bool; "true">
+<!ATTLIST pdf-settings EPS-processor                    (none|distiller|ghostscript) "none">
+<!ATTLIST pdf-settings ghostscript                    %URI; "">
+<!ATTLIST pdf-settings gs-add-options                    CDATA "">
+<!ATTLIST pdf-settings tagged-pdf                       %bool; "false">
+
+<!ELEMENT embed-font EMPTY >
+<!ATTLIST embed-font font %font-family; #IMPLIED>
+
+
+<!-- SVG settings -->
+
+<!ELEMENT svg-settings EMPTY>
+<!-- à compléter. Juste ajouter ici pour la validation -->
+
+
+<!-- text output settings -->
+
+<!ELEMENT text-settings EMPTY >
+<!ATTLIST text-settings encoding           CDATA "UTF-8"> <!-- ignore case -->
+<!ATTLIST text-settings eol-marker  (CRLF|LF|CR) #IMPLIED><!-- ignore case -->
+
+
+<!-- MathML settings -->
+
+<!ELEMENT mathml-settings
+        ( math?
+        , mfenced?
+        , mfrac?
+        , mo?
+        , mroot?
+        , mscript?
+        , mtable?
+        , munderover?
+        , mstyle?
+        , operator-dictionary*
+        )
+>
+<!ATTLIST mathml-settings double_struck %font-family; #IMPLIED>
+<!ATTLIST mathml-settings fraktur       %font-family; #IMPLIED>
+<!ATTLIST mathml-settings script        %font-family; #IMPLIED>
+<!ATTLIST mathml-settings sans-serif    %font-family; #IMPLIED>
+<!ATTLIST mathml-settings monospace     %font-family; #IMPLIED>
+
+<!ELEMENT math EMPTY >
+<!ATTLIST math small              %float; #IMPLIED>
+<!ATTLIST math normal             %float; #IMPLIED>
+<!ATTLIST math big                %float; #IMPLIED>
+<!ATTLIST math axis-shift         %float; #IMPLIED>
+
+<!ELEMENT mfenced EMPTY >
+<!ATTLIST mfenced center-shift    %float; #IMPLIED>
+
+<!ELEMENT mfrac EMPTY >
+<!ATTLIST mfrac bar-width         %float; #IMPLIED>
+<!ATTLIST mfrac numerator-space   %float; #IMPLIED>
+<!ATTLIST mfrac denominator-space %float; #IMPLIED>
+<!ATTLIST mfrac bar-lspace        %float; #IMPLIED>
+<!ATTLIST mfrac bar-rspace        %float; #IMPLIED>
+<!ATTLIST mfrac bar-padding       %float; #IMPLIED>
+<!ATTLIST mfrac thin              %float; #IMPLIED>
+<!ATTLIST mfrac medium            %float; #IMPLIED>
+<!ATTLIST mfrac thick             %float; #IMPLIED>
+
+<!ELEMENT mo EMPTY >
+<!ATTLIST mo largeop              %float; #IMPLIED>
+<!ATTLIST mo integral-size        %float; #IMPLIED>
+
+<!ELEMENT mroot EMPTY >
+<!ATTLIST mroot padding-left      %float; #IMPLIED>
+<!ATTLIST mroot padding-right     %float; #IMPLIED>
+<!ATTLIST mroot padding-top       %float; #IMPLIED>
+<!ATTLIST mroot padding-bottom    %float; #IMPLIED>
+<!ATTLIST mroot index-rspace      %float; #IMPLIED>
+<!ATTLIST mroot index-shift       %float; #IMPLIED>
+<!ATTLIST mroot root-pos1.x       %float; #IMPLIED>
+<!ATTLIST mroot root-pos1.y       %float; #IMPLIED>
+<!ATTLIST mroot root-pos2.x       %float; #IMPLIED>
+<!ATTLIST mroot root-pos2.y       %float; #IMPLIED>
+<!ATTLIST mroot root-pos3.x       %float; #IMPLIED>
+<!ATTLIST mroot root-pos3.y       %float; #IMPLIED>
+<!ATTLIST mroot root-pos4.x       %float; #IMPLIED>
+<!ATTLIST mroot root-pos4.y       %float; #IMPLIED>
+<!ATTLIST mroot root-width1       %float; #IMPLIED>
+<!ATTLIST mroot root-width2       %float; #IMPLIED>
+<!ATTLIST mroot root-width3       %float; #IMPLIED>
+<!ATTLIST mroot root-width4       %float; #IMPLIED>
+
+<!ELEMENT mscript EMPTY >
+<!ATTLIST mscript script-rspace            %float; #IMPLIED>
+<!ATTLIST mscript script-rspace2           %float; #IMPLIED>
+<!ATTLIST mscript script-lspace            %float; #IMPLIED>
+<!ATTLIST mscript script-lspace2           %float; #IMPLIED>
+<!ATTLIST mscript superscript-shift        %float; #IMPLIED>
+<!ATTLIST mscript subscript-shift          %float; #IMPLIED>
+<!ATTLIST mscript superscript-italic-shift %float; #IMPLIED>
+<!ATTLIST mscript subscript-italic-shift   %float; #IMPLIED>
+
+<!ELEMENT mtable EMPTY >
+<!ATTLIST mtable border-width          %float; #IMPLIED>
+
+<!ELEMENT munderover EMPTY >
+<!ATTLIST munderover limit-size        %float; #IMPLIED>
+<!ATTLIST munderover overscript-space  %float; #IMPLIED>
+<!ATTLIST munderover underscript-space %float; #IMPLIED>
+<!ATTLIST munderover bar-width         %float; #IMPLIED>
+<!ATTLIST munderover bar-padding       %float; #IMPLIED>
+<!ATTLIST munderover overbar-space     %float; #IMPLIED>
+<!ATTLIST munderover underbar-space    %float; #IMPLIED>
+<!ATTLIST munderover overaccent-shift  %float; #IMPLIED>
+<!ATTLIST munderover underaccent-shift %float; #IMPLIED>
+
+<!ELEMENT mstyle EMPTY >
+<!ATTLIST mstyle scriptlevel           %integer; #IMPLIED>
+<!ATTLIST mstyle displaystyle             %bool; #IMPLIED>
+<!ATTLIST mstyle scriptsizemultiplier    %float; #IMPLIED>
+<!ATTLIST mstyle scriptminsize       %abslength; #IMPLIED>
+<!ATTLIST mstyle background              %color; #IMPLIED>
+<!ATTLIST mstyle veryverythinmathspace  %length; #IMPLIED>
+<!ATTLIST mstyle verythinmathspace      %length; #IMPLIED>
+<!ATTLIST mstyle thinmathspace          %length; #IMPLIED>
+<!ATTLIST mstyle mediummathspace        %length; #IMPLIED>
+<!ATTLIST mstyle thickmathspace         %length; #IMPLIED>
+<!ATTLIST mstyle verythickmathspace     %length; #IMPLIED>
+<!ATTLIST mstyle veryverythickmathspace %length; #IMPLIED>
+
+<!ELEMENT operator-dictionary EMPTY >
+<!ATTLIST operator-dictionary src %URI; #REQUIRED>
+
+<!-- XSLT settings -->
+
+<!ELEMENT xslt-settings (param|stylesheet)* >
+<!ATTLIST xslt-settings command CDATA #REQUIRED>
+<!ATTLIST xslt-settings param   CDATA #REQUIRED>
+
+<!ELEMENT param EMPTY >
+<!ATTLIST param name  CDATA #REQUIRED>
+<!ATTLIST param value CDATA #REQUIRED>
+
+<!ELEMENT stylesheet EMPTY >
+<!ATTLIST stylesheet ns   CDATA #REQUIRED>
+<!ATTLIST stylesheet href %URI; #REQUIRED>
+
+<!-- RXE settings -->
+
+<!ELEMENT rxe-settings EMPTY >
+<!ATTLIST rxe-settings command CDATA #REQUIRED>
+

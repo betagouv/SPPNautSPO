@@ -265,9 +265,9 @@ pytest==7.2.0 \
     #   pytest-django
     #   pytest-dotenv
     #   pytest-subprocess
-pytest-asyncio==0.20.2 \
-    --hash=sha256:07e0abf9e6e6b95894a39f688a4a875d63c2128f76c02d03d16ccbc35bcc0f8a \
-    --hash=sha256:32a87a9836298a881c0ec637ebcc952cfe23a56436bdc0d09d1511941dd8a812
+pytest-asyncio==0.20.3 \
+    --hash=sha256:83cbf01169ce3e8eb71c6c278ccb0574d1a7a3bb8eaaf5e50e0ad342afb33b36 \
+    --hash=sha256:f129998b209d04fcc65c96fc85c11e5316738358909a8399e93be553d7656442
     # via -r dev-requirements.in
 pytest-django==4.5.2 \
     --hash=sha256:c60834861933773109334fe5a53e83d1ef4828f2203a1d6a0fa9972f4f75ab3e \

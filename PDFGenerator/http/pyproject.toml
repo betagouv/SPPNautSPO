@@ -1,0 +1,8 @@
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "core.settings"
+env_files = [".env.template", ".env.test"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
+asyncio_mode = "auto"

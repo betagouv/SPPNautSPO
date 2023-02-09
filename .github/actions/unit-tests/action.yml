@@ -1,0 +1,11 @@
+name: Unit tests
+
+runs:
+  using: composite
+  steps:
+    - name: Test
+      shell: bash
+      run: |
+        cd PDFGenerator/http
+        pip install --require-hashes --no-deps -r requirements.txt -r dev-requirements.txt
+        pytest unit_tests

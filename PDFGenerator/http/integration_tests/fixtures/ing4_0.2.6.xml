@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document xmlns:office="http://openoffice.org/2000/office" xmlns:style="http://openoffice.org/2000/style" xmlns:text="http://openoffice.org/2000/text" xmlns:table="http://openoffice.org/2000/table" xmlns:draw="http://openoffice.org/2000/drawing" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="http://openoffice.org/2000/meta" xmlns:number="http://openoffice.org/2000/datastyle" xmlns:presentation="http://openoffice.org/2000/presentation" xmlns:svg="http://www.w3.org/2000/svg" xmlns:chart="http://openoffice.org/2000/chart" xmlns:dr3d="http://openoffice.org/2000/dr3d" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="http://openoffice.org/2000/form" xmlns:script="http://openoffice.org/2000/script" xmlns:config="http://openoffice.org/2001/config" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:class="spreadsheet">
+  <office:meta>
+    <meta:generator>LibreOffice/6.0.7.3$Windows_X86_64 LibreOffice_project/22cd1c5eb4704b688d9716f90d09c4f3fd45b85b</meta:generator>
+    <meta:creation-date>2005-06-22T12:34:55</meta:creation-date>
+    <dc:creator>Jean Dupont</dc:creator>
+    <dc:date>2010-04-19T11:00:00</dc:date>
+    <dc:language>fr-FR</dc:language>
+    <meta:editing-cycles>7</meta:editing-cycles>
+    <meta:editing-duration>PT00H53M07S</meta:editing-duration>
+    <meta:user-defined meta:name="Info 1"/>
+    <meta:user-defined meta:name="Info 2"/>
+    <meta:user-defined meta:name="Info 3"/>
+    <meta:user-defined meta:name="Info 4"/>
+    <meta:document-statistic meta:table-count="3" meta:cell-count="36" meta:object-count="0"/>
+  </office:meta>
+  <office:settings>
+    <config:config-item-set config:name="view-settings">
+      <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
+      <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
+      <config:config-item config:name="VisibleAreaWidth" config:type="int">10833</config:config-item>
+      <config:config-item config:name="VisibleAreaHeight" config:type="int">2614</config:config-item>
+      <config:config-item-map-indexed config:name="Views">
+        <config:config-item-map-entry>
+          <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
+          <config:config-item-map-named config:name="Tables">
+            <config:config-item-map-entry config:name="Feuille1">
+              <config:config-item config:name="CursorPositionX" config:type="int">0</config:config-item>
+              <config:config-item config:name="CursorPositionY" config:type="int">1</config:config-item>
+              <config:config-item config:name="HorizontalSplitMode" config:type="short">0</config:config-item>
+              <config:config-item config:name="VerticalSplitMode" config:type="short">0</config:config-item>
+              <config:config-item config:name="HorizontalSplitPosition" config:type="int">0</config:config-item>
+              <config:config-item config:name="VerticalSplitPosition" config:type="int">0</config:config-item>
+              <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
+              <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
+              <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
+              <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
+              <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
+              <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+              <config:config-item config:name="ZoomValue" config:type="int">100</config:config-item>
+              <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+              <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+              <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+            </config:config-item-map-entry>
+          </config:config-item-map-named>
+          <config:config-item config:name="ActiveTable" config:type="string">Feuille1</config:config-item>
+          <config:config-item config:name="HorizontalScrollbarWidth" config:type="int">1259</config:config-item>
+          <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+          <config:config-item config:name="ZoomValue" config:type="int">100</config:config-item>
+          <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+          <config:config-item config:name="ShowPageBreakPreview" config:type="boolean">false</config:config-item>
+          <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
+          <config:config-item config:name="ShowNotes" config:type="boolean">true</config:config-item>
+          <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+          <config:config-item config:name="GridColor" config:type="long">12632256</config:config-item>
+          <config:config-item config:name="ShowPageBreaks" config:type="boolean">true</config:config-item>
+          <config:config-item config:name="HasColumnRowHeaders" config:type="boolean">true</config:config-item>
+          <config:config-item config:name="HasSheetTabs" config:type="boolean">true</config:config-item>
+          <config:config-item config:name="IsOutlineSymbolsSet" config:type="boolean">true</config:config-item>
+          <config:config-item config:name="IsValueHighlightingEnabled" config:type="boolean">false</config:config-item>
+          <config:config-item config:name="IsSnapToRaster" config:type="boolean">false</config:config-item>
+          <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
+          <config:config-item config:name="RasterResolutionX" config:type="int">1000</config:config-item>
+          <config:config-item config:name="RasterResolutionY" config:type="int">1000</config:config-item>
+          <config:config-item config:name="RasterSubdivisionX" config:type="int">1</config:config-item>
+          <config:config-item config:name="RasterSubdivisionY" config:type="int">1</config:config-item>
+          <config:config-item config:name="IsRasterAxisSynchronized" config:type="boolean">true</config:config-item>
+          <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+        </config:config-item-map-entry>
+      </config:config-item-map-indexed>
+    </config:config-item-set>
+    <config:config-item-set config:name="configuration-settings">
+      <config:config-item config:name="HasSheetTabs" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="ShowNotes" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="GridColor" config:type="long">12632256</config:config-item>
+      <config:config-item config:name="ShowPageBreaks" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
+      <config:config-item config:name="IsOutlineSymbolsSet" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="LinkUpdateMode" config:type="short">3</config:config-item>
+      <config:config-item config:name="HasColumnRowHeaders" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="IsSnapToRaster" config:type="boolean">false</config:config-item>
+      <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
+      <config:config-item config:name="RasterResolutionX" config:type="int">1000</config:config-item>
+      <config:config-item config:name="RasterResolutionY" config:type="int">1000</config:config-item>
+      <config:config-item config:name="RasterSubdivisionX" config:type="int">1</config:config-item>
+      <config:config-item config:name="RasterSubdivisionY" config:type="int">1</config:config-item>
+      <config:config-item config:name="IsRasterAxisSynchronized" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="AutoCalculate" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="PrinterName" config:type="string">\\serveur-impression\imprimante</config:config-item>
+      <config:config-item config:name="PrinterSetup" config:type="base64Binary">TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gTnVsbGFtIGx1Y3R1cyBlbmltIGVnZXQgb3JjaSBjb252YWxsaXMgc29kYWxlcyBub24gYWMgbmVxdWUuIERvbmVjIHV0IG5lcXVlIHRpbmNpZHVudCwgY29tbW9kbyBsZW8gZWdldCwgdWx0cmljaWVzIGFyY3UuIERvbmVjIG1hdXJpcyBxdWFtLCBjb252YWxsaXMgYXQgZGFwaWJ1cyB2aXRhZSwgZmV1Z2lhdCB2aXRhZSBtaS4gQWxpcXVhbSBwb3J0YSBzYWdpdHRpcyBqdXN0bywgZXUgYmliZW5kdW0gb3JjaSBibGFuZGl0IHNpdCBhbWV0LiBQaGFzZWxsdXMgZWdlc3RhcyBxdWlzIGV4IHV0IGNvbnNlY3RldHVyLiBTZWQgdmVsIG51bGxhIGx1Y3R1cyBzYXBpZW4gc29kYWxlcyBjb25kaW1lbnR1bS4gVXQgZWxlaWZlbmQgYXJjdSBuaWJoLCBhYyBjb25zZWN0ZXR1ciBkb2xvciBtb2xlc3RpZSBzZWQuIERvbmVjIGEgcG9zdWVyZSBtaS4gUGhhc2VsbHVzIGFsaXF1ZXQgaW50ZXJkdW0gcXVhbSBub24gYmxhbmRpdC4gUGhhc2VsbHVzIG1hc3NhIGxpYmVybywgcGxhY2VyYXQgYWMgb2RpbyBlZ2V0LCBlZmZpY2l0dXIgdGVtcG9yIHRlbGx1cy4gTWFlY2VuYXMgbGFvcmVldCBvcmNpIG51bmMsIGluIGZhY2lsaXNpcyBwdXJ1cyB1bGxhbWNvcnBlciBuZWMuIEN1cmFiaXR1ciBldSBibGFuZGl0IGRvbG9yLiA=</config:config-item>
+      <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
+      <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
+      <config:config-item config:name="UpdateFromTemplate" config:type="boolean">false</config:config-item>
+      <config:config-item config:name="AllowPrintJobCancel" config:type="boolean">true</config:config-item>
+      <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
+      <config:config-item config:name="IsDocumentShared" config:type="boolean">false</config:config-item>
+      <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
+      <config:config-item config:name="SyntaxStringRef" config:type="short">7</config:config-item>
+    </config:config-item-set>
+  </office:settings>
+  <office:script>
+    <office:script-data script:language="Basic">
+   <script:libraries>
+    <script:library-embedded script:name="Standard"/>
+   </script:libraries></office:script-data>
+  </office:script>
+  <office:font-decls>
+    <style:font-decl style:name="Arial1" fo:font-family="Arial" style:font-pitch="variable"/>
+    <style:font-decl style:name="Lucida Grande" fo:font-family="'Lucida Grande'" style:font-pitch="variable"/>
+    <style:font-decl style:name="Arial" fo:font-family="Arial" style:font-family-generic="swiss" style:font-pitch="variable"/>
+    <style:font-decl style:name="Liberation Sans" fo:font-family="'Liberation Sans'" style:font-family-generic="swiss" style:font-pitch="variable"/>
+    <style:font-decl style:name="Segoe UI" fo:font-family="'Segoe UI'" style:font-family-generic="system" style:font-pitch="variable"/>
+    <style:font-decl style:name="Tahoma" fo:font-family="Tahoma" style:font-family-generic="system" style:font-pitch="variable"/>
+  </office:font-decls>
+  <office:styles>
+    <style:default-style style:family="table-cell">
+      <style:properties style:decimal-places="2" style:tab-stop-distance="12.5mm" style:font-name="Arial" fo:language="fr" fo:country="FR" style:font-name-asian="Arial1" style:language-asian="zxx" style:country-asian="none" style:font-name-complex="Lucida Grande" style:language-complex="zxx" style:country-complex="none"/>
+    </style:default-style>
+    <number:number-style style:name="N0">
+      <number:number number:min-integer-digits="1"/>
+    </number:number-style>
+    <number:currency-style style:name="N108P0" style:volatile="true">
+      <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
+      <number:text> </number:text>
+      <number:currency-symbol number:language="fr" number:country="FR">€</number:currency-symbol>
+    </number:currency-style>
+    <number:currency-style style:name="N108">
+      <style:properties fo:color="#ff0000"/>
+      <number:text>-</number:text>
+      <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
+      <number:text> </number:text>
+      <number:currency-symbol number:language="fr" number:country="FR">€</number:currency-symbol>
+      <style:map style:condition="value()&gt;=0" style:apply-style-name="N108P0"/>
+    </number:currency-style>
+    <style:style style:name="Default" style:family="table-cell"/>
+    <style:style style:name="Result" style:family="table-cell" style:parent-style-name="Default">
+      <style:properties fo:font-style="italic" style:text-underline-color="font-color" fo:font-weight="bold" style:text-underline="single"/>
+    </style:style>
+    <style:style style:name="Result2" style:family="table-cell" style:parent-style-name="Result" style:data-style-name="N108"/>
+    <style:style style:name="Heading" style:family="table-cell" style:parent-style-name="Default">
+      <style:properties style:text-align-source="fix" fo:text-align="center" fo:font-size="16pt" fo:font-style="italic" fo:font-weight="bold"/>
+    </style:style>
+    <style:style style:name="Heading1" style:family="table-cell" style:parent-style-name="Heading">
+      <style:properties fo:direction="ltr" style:rotation-angle="90"/>
+    </style:style>
+  </office:styles>
+  <office:automatic-styles>
+    <style:style style:name="co1" style:family="table-column">
+      <style:properties fo:break-before="auto" style:column-width="7.58mm"/>
+    </style:style>
+    <style:style style:name="co2" style:family="table-column">
+      <style:properties fo:break-before="auto" style:column-width="24.91mm"/>
+    </style:style>
+    <style:style style:name="co3" style:family="table-column">
+      <style:properties fo:break-before="auto" style:column-width="30.34mm"/>
+    </style:style>
+    <style:style style:name="co4" style:family="table-column">
+      <style:properties fo:break-before="auto" style:column-width="22.58mm"/>
+    </style:style>
+    <style:style style:name="co5" style:family="table-column">
+      <style:properties fo:break-before="auto" style:column-width="22.67mm"/>
+    </style:style>
+    <style:style style:name="ro1" style:family="table-row">
+      <style:properties style:row-height="4.36mm" fo:break-before="auto" style:use-optimal-row-height="true"/>
+    </style:style>
+    <style:style style:name="ro2" style:family="table-row">
+      <style:properties style:row-height="4.52mm" fo:break-before="auto" style:use-optimal-row-height="true"/>
+    </style:style>
+    <style:style style:name="ro3" style:family="table-row">
+      <style:properties style:row-height="4.53mm" fo:break-before="auto" style:use-optimal-row-height="true"/>
+    </style:style>
+    <style:style style:name="ta1" style:family="table" style:master-page-name="Default">
+      <style:properties table:display="true" style:writing-mode="lr-tb"/>
+    </style:style>
+    <style:page-master style:name="pm1">
+      <style:properties style:writing-mode="lr-tb"/>
+      <style:header-style>
+        <style:properties fo:min-height="7.51mm" fo:margin-left="0mm" fo:margin-right="0mm" fo:margin-bottom="2.5mm"/>
+      </style:header-style>
+      <style:footer-style>
+        <style:properties fo:min-height="7.51mm" fo:margin-left="0mm" fo:margin-right="0mm" fo:margin-top="2.5mm"/>
+      </style:footer-style>
+    </style:page-master>
+    <style:page-master style:name="pm2">
+      <style:properties style:writing-mode="lr-tb"/>
+      <style:header-style>
+        <style:properties fo:min-height="7.51mm" fo:margin-left="0mm" fo:margin-right="0mm" fo:margin-bottom="2.5mm" fo:border="2.49pt solid #000000" fo:padding="0.18mm" fo:background-color="#c0c0c0">
+          <style:background-image/>
+        </style:properties>
+      </style:header-style>
+      <style:footer-style>
+        <style:properties fo:min-height="7.51mm" fo:margin-left="0mm" fo:margin-right="0mm" fo:margin-top="2.5mm" fo:border="2.49pt solid #000000" fo:padding="0.18mm" fo:background-color="#c0c0c0">
+          <style:background-image/>
+        </style:properties>
+      </style:footer-style>
+    </style:page-master>
+  </office:automatic-styles>
+  <office:master-styles>
+    <style:master-page style:name="Default" style:page-master-name="pm1">
+      <style:header>
+        <text:p>
+          <text:sheet-name>???</text:sheet-name>
+        </text:p>
+      </style:header>
+      <style:header-left style:display="false"/>
+      <style:footer>
+        <text:p>Page <text:page-number>1</text:page-number></text:p>
+      </style:footer>
+      <style:footer-left style:display="false"/>
+    </style:master-page>
+    <style:master-page style:name="Report" style:page-master-name="pm2">
+      <style:header>
+        <style:region-left>
+          <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
+        </style:region-left>
+        <style:region-right>
+          <text:p><text:date style:data-style-name="N2" text:date-value="2020-06-04">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="11:25:01,679000000">00:00:00</text:time></text:p>
+        </style:region-right>
+      </style:header>
+      <style:header-left style:display="false"/>
+      <style:footer>
+        <text:p>Page <text:page-number>1</text:page-number><text:s/>/ <text:page-count>99</text:page-count></text:p>
+      </style:footer>
+      <style:footer-left style:display="false"/>
+    </style:master-page>
+  </office:master-styles>
+  <office:body>
+    <table:table table:name="Feuille1" table:style-name="ta1">
+      <table:table-column table:style-name="co1" table:default-cell-style-name="Default"/>
+      <table:table-column table:style-name="co2" table:default-cell-style-name="Default"/>
+      <table:table-column table:style-name="co1" table:default-cell-style-name="Default"/>
+      <table:table-column table:style-name="co3" table:default-cell-style-name="Default"/>
+      <table:table-column table:style-name="co1" table:default-cell-style-name="Default"/>
+      <table:table-column table:style-name="co3" table:default-cell-style-name="Default"/>
+      <table:table-row table:style-name="ro1">
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>N</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p><text:s/>Nord </text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>km</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>kilomètre</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>HF</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>haute fréquence</text:p>
+        </table:table-cell>
+      </table:table-row>
+      <table:table-row table:style-name="ro1">
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>S</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p><text:s/>Sud</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>BM</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>basse mer</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>MF</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>moyenne fréquence</text:p>
+        </table:table-cell>
+      </table:table-row>
+      <table:table-row table:style-name="ro1">
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>E</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p><text:s/>Est</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>PM</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>pleine mer</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>UHF</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>ultra haute fréquence</text:p>
+        </table:table-cell>
+      </table:table-row>
+      <table:table-row table:style-name="ro1">
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>W</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p><text:s/>Ouest</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>ME</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>morte-eau</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>VHF</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>très haute fréquence</text:p>
+        </table:table-cell>
+      </table:table-row>
+      <table:table-row table:style-name="ro1">
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>M</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p><text:s/>mille marin</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>VE</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>vive-eau</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>UT</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>temps universel</text:p>
+        </table:table-cell>
+      </table:table-row>
+      <table:table-row table:style-name="ro1">
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>m</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p><text:s/>mètre</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>HPA</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>heure probable d’arrivée</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p><text:s/>h</text:p>
+        </table:table-cell>
+        <table:table-cell table:value-type="string" calcext:value-type="string">
+          <text:p>heure</text:p>
+        </table:table-cell>
+      </table:table-row>
+    </table:table>
+    <table:table table:name="Feuille2" table:style-name="ta1">
+      <table:table-column table:style-name="co5" table:default-cell-style-name="Default"/>
+      <table:table-row table:style-name="ro3">
+        <table:table-cell/>
+      </table:table-row>
+    </table:table>
+    <table:table table:name="Feuille3" table:style-name="ta1">
+      <table:table-column table:style-name="co5" table:default-cell-style-name="Default"/>
+      <table:table-row table:style-name="ro3">
+        <table:table-cell/>
+      </table:table-row>
+    </table:table>
+    <table:named-expressions/>
+  </office:body>
+</office:document>

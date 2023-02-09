@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE formatter-config SYSTEM "xfoSettings.dtd">
+<formatter-config>
+    <!-- Ces réglages sont utilisés par le formatteur.  -->
+    <!-- text-justify-mode=4 sert pour la compatibilité avec la version 4 -->
+    <formatter-settings default-lang="fr" text-justify-mode="4" two-pass-formatting="true" />
+    <!-- Ces réglages concernent les polices -->
+    <font-settings default-font-family="sans-serif">
+        <script-font cursive="Times New Roman" fantasy="Times New Roman" monospace="Courier New" sans-serif="Arial" serif="Times New Roman" />
+    </font-settings>
+    <!-- Réglages du ficher pdf de sortie -->
+    <pdf-settings EPS-processor="ghostscript" embed-all-fonts="true" encryption-level="128" error-on-embed-fault="true" ghostscript="/usr/local/bin/gs" gs-add-options="-dUseCIEColor=true" no-accessibility="true" no-assemble-doc="true" no-changing="true" no-content-copying="true" no-printing="true" owner-password="" pdf-version="1.6" tagged-pdf="true" />
+    <!--<embed-font font="Times"/>
+        <embed-font font="Helvetica"/>
+    </pdf-settings>-->
+    <!-- Ces réglages sont utilisés pour la sortie des fichiers texte.  -->
+    <text-settings encoding="UTF-16" />
+</formatter-config>

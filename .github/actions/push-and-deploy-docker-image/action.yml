@@ -1,0 +1,64 @@
+name: Push and deploy docker image
+
+inputs:
+  github_token:
+    required: true
+  clever_token:
+    required: true
+  clever_secret:
+    required: true
+  registry:
+    required: true
+  image_name:
+    required: true
+  app_id:
+    required: true
+
+runs:
+  using: composite
+  steps:
+
+    - name: Log in to the Container registry
+      uses: docker/login-action@v2
+      with:
+        registry: ${{ inputs.registry }}
+        username: ${{ github.actor }}
+        password: ${{ inputs.github_token }}
+
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: ${{ inputs.registry }}/${{ inputs.image_name }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        builder: ${{ steps.buildx.outputs.name }}
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=local,src=/tmp/.buildx-cache
+        cache-to: type=local,dest=/tmp/.buildx-cache-new
+
+    - uses: 47ng/actions-clever-cloud@v1.2.0
+      with:
+        appID: ${{ inputs.app_id }}
+        timeout: 900 # 15 minutes
+        force: true
+        setEnv: |
+          CC_DOCKER_LOGIN_PASSWORD=${{ inputs.github_token }}
+          CC_DOCKER_LOGIN_USERNAME=${{ github.actor }}
+      env:
+        CLEVER_TOKEN: ${{ inputs.clever_token }}
+        CLEVER_SECRET: ${{ inputs.clever_secret }}
+
+    # Temp fix
+    # https://github.com/docker/build-push-action/issues/252
+    # https://github.com/moby/buildkit/issues/1896
+    - name: Move cache
+      shell: bash
+      run: |
+        rm -rf /tmp/.buildx-cache
+        mv /tmp/.buildx-cache-new /tmp/.buildx-cache

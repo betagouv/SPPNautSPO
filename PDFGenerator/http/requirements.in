@@ -1,0 +1,9 @@
+awscli
+boto3
+Django
+django-cors-headers
+gunicorn
+nest_asyncio
+procrastinate
+python-decouple
+sentry-sdk

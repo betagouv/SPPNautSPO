@@ -1,0 +1,6 @@
+.env
+.DS_Store
+.venv
+*.ipynb
+pgdata
+generation_home

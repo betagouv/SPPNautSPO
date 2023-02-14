@@ -21,5 +21,5 @@ urlpatterns = [
         views.generate_publication_from_upload,
     ),
     path("publication/<slug:generation_id>/", views.publication),
-    path("carting/<slug:ouvrage>/", views.get_document_xml),
+    path("carting/<slug:ouvrage>/", views.get_document_xml_presigned_url),
 ]

@@ -9,15 +9,15 @@ from pathlib import Path
 
 import sentry_sdk
 from bin.generator import ARCHIVE_FILENAME, LOG_FILENAME
+from botocore.exceptions import ClientError
 from django.conf import settings
 from django.http import FileResponse, HttpResponse, JsonResponse
 from django.views.decorators.http import require_GET, require_POST
 from django.views.generic import FormView
-
-from .forms import UploadDirectoryFileForm, UploadFileForm
-from .s3 import (
+from home.forms import UploadDirectoryFileForm, UploadFileForm
+from home.s3 import (
     bootstrap_assets,
-    get_document,
+    get_document_xml_presigned_url,
     list_generated_documents_by_ouvrages,
     list_ouvrages_en_preparation,
 )
@@ -165,9 +165,8 @@ def publication(request, generation_id):
 
 
 @require_GET
-def get_document_xml(request, ouvrage):
-
-    return HttpResponse(get_document(ouvrage))
+def get_document_xml_presigned_url(request, ouvrage):
+    return HttpResponse(get_document_xml_presigned_url(ouvrage))
 
 
 def _get_publication_path(generation_id) -> Path:

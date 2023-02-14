@@ -4,7 +4,6 @@ from urllib.parse import parse_qs, urlparse
 
 import boto3
 import pytest
-import time_machine
 from home.s3 import (
     AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY,
@@ -15,6 +14,7 @@ from home.s3 import (
     S3_BUCKET_REFERENTIEL_PRODUCTION,
     S3_ENDPOINT,
     bootstrap_assets,
+    get_document_xml_presigned_url,
     get_generated_pdf_ouvrages,
     list_generated_documents_by_ouvrages,
     list_ouvrages_en_preparation,
@@ -295,3 +295,11 @@ class TestBootstrapAssets:
         assert fake_s3_copy_source.calls
 
         assert len(fake_copyrighted_assets.calls) == 0
+
+
+class TestGetDocumentXml:
+    def test_get_document_xml_presigned_url(self):
+        ouvrage_path = get_document_xml_presigned_url("g4fake")
+        assert ouvrage_path.startswith(
+            "https://cellar-fr-north-hds-c1.services.clever-cloud.com/sppnaut-referentiel-preparation/g4fake/xml/document.xml"
+        )

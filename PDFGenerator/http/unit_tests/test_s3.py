@@ -297,10 +297,16 @@ class TestBootstrapAssets:
         assert len(fake_copyrighted_assets.calls) == 0
 
 
-# FIXME : valider le nom de la classe
-class TestDownload:
-    def test_get_presigned_url(self):
-        ouvrage_path = get_presigned_url("g4fake/xml/document.xml")
-        assert ouvrage_path.startswith(
-            "https://cellar-fr-north-hds-c1.services.clever-cloud.com/sppnaut-referentiel-preparation/g4fake/xml/document.xml"
+class TestGetPresignedUrl:
+    def test_basic(self):
+        ouvrage_url = get_presigned_url("g4fake/xml/document.xml")
+
+        url = urlparse(ouvrage_url)
+        assert url.scheme == "https"
+        assert url.path.endswith("g4fake/xml/document.xml")
+
+        query_string = parse_qs(url.query)
+        five_minutes_later = datetime.now() + timedelta(minutes=5)
+        assert (
+            abs(int(query_string["Expires"][0]) - five_minutes_later.timestamp()) < 10
         )

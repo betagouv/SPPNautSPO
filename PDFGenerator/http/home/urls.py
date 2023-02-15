@@ -21,5 +21,5 @@ urlpatterns = [
         views.generate_publication_from_upload,
     ),
     path("publication/<slug:generation_id>/", views.publication),
-    path("download-url/<path:path>/", views.get_download_url),
+    path("url-for/<path:path>/", views.get_download_url),
 ]

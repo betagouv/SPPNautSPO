@@ -14,8 +14,8 @@ from home.s3 import (
     S3_BUCKET_REFERENTIEL_PRODUCTION,
     S3_ENDPOINT,
     bootstrap_assets,
-    get_document_xml_presigned_url,
     get_generated_pdf_ouvrages,
+    get_presigned_url,
     list_generated_documents_by_ouvrages,
     list_ouvrages_en_preparation,
 )
@@ -297,9 +297,10 @@ class TestBootstrapAssets:
         assert len(fake_copyrighted_assets.calls) == 0
 
 
-class TestGetDocumentXml:
-    def test_get_document_xml_presigned_url(self):
-        ouvrage_path = get_document_xml_presigned_url("g4fake")
+# FIXME : valider le nom de la classe
+class TestDownload:
+    def test_get_presigned_url(self):
+        ouvrage_path = get_presigned_url("g4fake/xml/document.xml")
         assert ouvrage_path.startswith(
             "https://cellar-fr-north-hds-c1.services.clever-cloud.com/sppnaut-referentiel-preparation/g4fake/xml/document.xml"
         )

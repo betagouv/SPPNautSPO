@@ -78,9 +78,9 @@ nest-asyncio==1.5.6 \
     --hash=sha256:b9a953fb40dceaa587d109609098db21900182b16440652454a146cffb06e8b8 \
     --hash=sha256:d267cc1ff794403f7df692964d1d2a3fa9418ffea2a3f6859a439ff482fef290
     # via -r requirements.in
-procrastinate==0.26.0 \
-    --hash=sha256:7b6f7acc32de53dbb002a597878ac941b048fd1d4860b0f472ed3570cf75e50b \
-    --hash=sha256:a5572ce95cd2fee8f0f56ae27e4d9fa51fa47735a11d95467d7e18902c64d0c9
+procrastinate==0.27.0 \
+    --hash=sha256:43a1010773e05b6906630257be570a8b9b9cd9410f631b0d961c8b27693cf62a \
+    --hash=sha256:94d3b924ed60648a081c94ae561c6b89c9775117070281fe1a5f97ce08389c26
     # via -r requirements.in
 psycopg2-binary==2.9.5 \
     --hash=sha256:00475004e5ed3e3bf5e056d66e5dcdf41a0dc62efcd57997acd9135c40a08a50 \

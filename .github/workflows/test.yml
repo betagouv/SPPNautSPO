@@ -1,0 +1,60 @@
+on:
+  workflow_call:
+
+defaults:
+  run:
+    shell: bash
+    working-directory: PDFGenerator/http
+
+jobs:
+  lint_and_unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          cache: "pip"
+          cache-dependency-path: "**/*requirements.txt"
+
+      - name: Install dependencies
+        run: pip install --require-hashes --no-deps -r requirements.txt -r dev-requirements.txt
+
+      - name: Run unit tests
+        run: pytest unit_tests
+
+      - name: Check code formatting
+        run: black --check --diff .
+
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          load: true
+          tags: sppnaut_sppnaut
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - uses: actions/setup-python@v4
+        with:
+          cache: "pip"
+          cache-dependency-path: "**/*requirements.txt"
+
+      - name: Give bucket access
+        run: |
+          cp .env.template .env
+          echo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} >> .env
+          echo AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} >> .env
+
+      - name: Install dependencies
+        run: pip install --require-hashes --no-deps -r requirements.txt -r dev-requirements.txt
+
+      - name: Run integration tests
+        run: pytest integration_tests

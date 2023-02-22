@@ -17,6 +17,7 @@ from django.views.generic import FormView
 from .forms import UploadDirectoryFileForm, UploadFileForm
 from .s3 import (
     bootstrap_assets,
+    get_presigned_url,
     list_generated_documents_by_ouvrages,
     list_ouvrages_en_preparation,
 )
@@ -161,6 +162,11 @@ def publication(request, generation_id):
         (publication_path / "document.pdf").open("rb"),
         filename=f"{publication_path.name}.pdf",
     )
+
+
+@require_GET
+def get_download_url(request, path):
+    return HttpResponse(get_presigned_url(path))
 
 
 def _get_publication_path(generation_id) -> Path:

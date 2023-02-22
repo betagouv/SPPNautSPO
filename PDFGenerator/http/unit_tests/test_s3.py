@@ -4,7 +4,6 @@ from urllib.parse import parse_qs, urlparse
 
 import boto3
 import pytest
-import time_machine
 from home.s3 import (
     AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY,
@@ -16,6 +15,7 @@ from home.s3 import (
     S3_ENDPOINT,
     bootstrap_assets,
     get_generated_pdf_ouvrages,
+    get_presigned_url,
     list_generated_documents_by_ouvrages,
     list_ouvrages_en_preparation,
 )
@@ -295,3 +295,18 @@ class TestBootstrapAssets:
         assert fake_s3_copy_source.calls
 
         assert len(fake_copyrighted_assets.calls) == 0
+
+
+class TestGetPresignedUrl:
+    def test_basic(self):
+        ouvrage_url = get_presigned_url("g4fake/xml/document.xml")
+
+        url = urlparse(ouvrage_url)
+        assert url.scheme == "https"
+        assert url.path.endswith("g4fake/xml/document.xml")
+
+        query_string = parse_qs(url.query)
+        five_minutes_later = datetime.now() + timedelta(minutes=5)
+        assert (
+            abs(int(query_string["Expires"][0]) - five_minutes_later.timestamp()) < 10
+        )

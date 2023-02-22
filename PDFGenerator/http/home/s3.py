@@ -8,6 +8,7 @@ from decouple import config
 DELIMITER = "/"
 FOLDERS_TO_IGNORE = {"Fichiers_communs"}
 PUBLIC_DOWNLOADS_AVAILABILITY = 60 * 60 * 24  # 1 day
+PRIVATE_DOWNLOADS_AVAILABILITY = 60 * 5  # 5 minutes
 
 # S3 constants from env
 S3_BUCKET_REFERENTIEL_PREPARATION = config("S3_BUCKET_REFERENTIEL_PREPARATION")
@@ -40,6 +41,24 @@ def list_ouvrages_en_preparation():
     }
 
     return sorted(ouvrages - FOLDERS_TO_IGNORE)
+
+
+def get_presigned_url(path: str):
+    s3_client = boto3.client(
+        "s3",
+        aws_access_key_id=AWS_ACCESS_KEY_ID,
+        aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+        endpoint_url=S3_ENDPOINT,
+    )
+    response = s3_client.generate_presigned_url(
+        "get_object",
+        Params={
+            "Bucket": S3_BUCKET_REFERENTIEL_PREPARATION,
+            "Key": path,
+        },
+        ExpiresIn=PRIVATE_DOWNLOADS_AVAILABILITY,
+    )
+    return response
 
 
 def list_generated_documents_by_ouvrages():

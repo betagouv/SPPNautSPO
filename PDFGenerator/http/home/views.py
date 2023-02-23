@@ -88,7 +88,6 @@ upload_input = UploadInput.as_view()
 
 @require_POST
 def generate_publication_from_upload(request, generation_id):
-
     try:
         publication_path = _get_publication_path(generation_id)
     except FileNotFoundError as err:
@@ -112,7 +111,6 @@ def generate_publication_from_upload(request, generation_id):
 
 @require_GET
 def publication(request, generation_id):
-
     try:
         publication_path = _get_publication_path(generation_id)
     except FileNotFoundError:

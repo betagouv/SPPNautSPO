@@ -219,6 +219,7 @@ markupsafe==2.1.1 \
     # via
     #   jinja2
     #   moto
+    #   werkzeug
 moto[s3]==4.0.9 \
     --hash=sha256:2fb909d2ea1b732f89604e4268e2c2207c253e590a635a410c3c2aaebb34e113 \
     --hash=sha256:ba03b638cf3b1cec64cbe9ac0d184ca898b69020c8e3c5b9b4961c1670629010
@@ -414,9 +415,9 @@ urllib3==1.26.10 \
     #   botocore
     #   requests
     #   responses
-werkzeug==2.1.2 \
-    --hash=sha256:1ce08e8093ed67d638d63879fd1ba3735817f7a80de3674d293f5984f25fb6e6 \
-    --hash=sha256:72a4b735692dd3135217911cbeaa1be5fa3f62bffb8745c5215420a03dc55255
+werkzeug==2.2.3 \
+    --hash=sha256:2e1ccc9417d4da358b9de6f174e3ac094391ea1d4fbef2d667865d819dfd0afe \
+    --hash=sha256:56433961bc1f12533306c624f3be5e744389ac61d722175d543e1751285da612
     # via moto
 xmltodict==0.13.0 \
     --hash=sha256:341595a488e3e01a85a9d8911d8912fd922ede5fecc4dce437eb4b6c8d037e56 \

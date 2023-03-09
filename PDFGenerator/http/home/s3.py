@@ -1,3 +1,4 @@
+import logging
 import subprocess
 from collections import defaultdict
 from pathlib import Path
@@ -129,7 +130,7 @@ def _s3_cp(s3_path, destination_path, recursive=False):
 
 
 def _s3_sync(s3_path, destination_path):
-    subprocess.run(
+    awscli = subprocess.run(
         [
             "python",
             "-m",
@@ -142,8 +143,11 @@ def _s3_sync(s3_path, destination_path):
             f"s3://{S3_BUCKET_REFERENTIEL_PRODUCTION}/{s3_path}",
             destination_path,
         ],
-        check=True,
+        stderr=subprocess.STDOUT,
+        stdout=subprocess.PIPE,
     )
+    logging.info("AWSCLI: %s", awscli.stdout.decode())
+    awscli.check_returncode()
 
 
 def _bootstrap_copyrighted_assets(

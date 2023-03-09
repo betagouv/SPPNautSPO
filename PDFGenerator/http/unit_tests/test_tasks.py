@@ -30,9 +30,9 @@ def mock_home_generation_path(tmp_path):
 
 
 class TestGeneratePublicationFromReferentiel:
-    def test_basic(self, tmp_path, mock_home_generation_path):
+    async def test_basic(self, tmp_path, mock_home_generation_path):
         with patch("home.tasks.generate", autospec=True) as generate_mock:
-            generate_publication_from_referentiel(
+            await generate_publication_from_referentiel(
                 ouvrage="g4",
                 s3_endpoint="https://endpoint.fake",
                 s3_inputs_bucket="bucket_fake",
@@ -44,7 +44,7 @@ class TestGeneratePublicationFromReferentiel:
             dir = list(tmp_path.iterdir())[0]
             assert list(dir.iterdir()) == [dir / "g4"]
 
-            generate_mock.assert_called_once_with(
+            generate_mock.assert_awaited_once_with(
                 dir / "g4",
                 s3_endpoint="https://endpoint.fake",
                 s3_inputs_bucket="bucket_fake",
@@ -56,16 +56,18 @@ class TestGeneratePublicationFromReferentiel:
                 cleanup=True,
             )
 
-    def test_new_folder_for_each_generation(self, tmp_path, mock_home_generation_path):
+    async def test_new_folder_for_each_generation(
+        self, tmp_path, mock_home_generation_path
+    ):
         with patch("home.tasks.generate", autospec=True):
-            generate_publication_from_referentiel(
+            await generate_publication_from_referentiel(
                 ouvrage="g4",
                 s3_endpoint="https://endpoint.fake",
                 s3_inputs_bucket="bucket_fake",
                 s3_source_path="s3://source_path_fake",
                 s3_destination_path="s3://destination_path_fake",
             )
-            generate_publication_from_referentiel(
+            await generate_publication_from_referentiel(
                 ouvrage="g4",
                 s3_endpoint="https://endpoint.fake",
                 s3_inputs_bucket="bucket_fake",

@@ -74,10 +74,6 @@ jmespath==1.0.1 \
     # via
     #   boto3
     #   botocore
-nest-asyncio==1.5.6 \
-    --hash=sha256:b9a953fb40dceaa587d109609098db21900182b16440652454a146cffb06e8b8 \
-    --hash=sha256:d267cc1ff794403f7df692964d1d2a3fa9418ffea2a3f6859a439ff482fef290
-    # via -r requirements.in
 procrastinate==0.27.0 \
     --hash=sha256:43a1010773e05b6906630257be570a8b9b9cd9410f631b0d961c8b27693cf62a \
     --hash=sha256:94d3b924ed60648a081c94ae561c6b89c9775117070281fe1a5f97ce08389c26

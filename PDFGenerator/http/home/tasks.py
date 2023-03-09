@@ -13,7 +13,7 @@ S3_ENDPOINT = config("S3_ENDPOINT")
 
 
 @procrastinate_app.task(name="generate_publication_from_referentiel")
-def generate_publication_from_referentiel(
+async def generate_publication_from_referentiel(
     *,
     ouvrage: str,
     s3_endpoint: str,
@@ -25,7 +25,7 @@ def generate_publication_from_referentiel(
     ouvrage_path = Path(config("HOME_GENERATION_PATH")) / str(generation_id) / ouvrage
     ouvrage_path.mkdir(parents=True)
 
-    generate(
+    await generate(
         ouvrage_path,
         s3_endpoint=s3_endpoint,
         s3_inputs_bucket=s3_inputs_bucket,

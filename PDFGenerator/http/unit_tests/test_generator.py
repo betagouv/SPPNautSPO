@@ -99,10 +99,10 @@ class TestGenerator:
             bootstrap_assets_mock.side_effect = create_asset_dirs
             yield bootstrap_assets_mock
 
-    def test_basic(
+    async def test_basic(
         self, tmp_path, fake_ps2pdf, fake_saxon, fake_ahformatter, mock_bootstrap_assets
     ):
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -131,24 +131,10 @@ class TestGenerator:
         assert (tmp_path / "fake_uuid" / "g4" / "document.pdf").exists()
         assert not (tmp_path / "fake_uuid" / "g4" / "archive.zip").exists()
 
-    async def test_basic_within_existing_event_loop(
+    async def test_copy_shared_source(
         self, tmp_path, fake_ps2pdf, fake_saxon, fake_ahformatter, mock_bootstrap_assets
     ):
-        generate(
-            tmp_path / "fake_uuid" / "g4",
-            s3_endpoint="https://fake_s3_endpoint",
-            s3_inputs_bucket="s3://fake_s3_inputs_bucket",
-        )
-
-        assert not fake_ps2pdf.calls
-        assert fake_saxon.calls
-        assert fake_ahformatter.calls
-        mock_bootstrap_assets.assert_called_once()
-
-    def test_copy_shared_source(
-        self, tmp_path, fake_ps2pdf, fake_saxon, fake_ahformatter, mock_bootstrap_assets
-    ):
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -164,13 +150,13 @@ class TestGenerator:
         assert (tmp_path / "fake_uuid" / "source").is_dir()
         assert (tmp_path / "fake_uuid" / "source" / "xsl").exists()
 
-    def test_copy_local_source(
+    async def test_copy_local_source(
         self, tmp_path, fake_ps2pdf, fake_saxon, fake_ahformatter, mock_bootstrap_assets
     ):
         (tmp_path / "fake_uuid" / "g4" / "source").mkdir(parents=True)
         (tmp_path / "fake_uuid" / "g4" / "source" / "test").touch()
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -187,7 +173,7 @@ class TestGenerator:
         assert (tmp_path / "fake_uuid" / "source" / "test").exists()
         assert not (tmp_path / "fake_uuid" / "source" / "xsl").exists()
 
-    def test_idocument(
+    async def test_idocument(
         self,
         tmp_path,
         fake_ps2pdf,
@@ -228,7 +214,7 @@ class TestGenerator:
             stderr=["SAXON"],
         )
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint=fake_s3_endpoint,
             s3_source_path=fake_s3_source_path,
@@ -240,7 +226,7 @@ class TestGenerator:
         assert fake_ahformatter.calls
         mock_bootstrap_assets.assert_called_once()
 
-    def test_calmarafacon(
+    async def test_calmarafacon(
         self,
         tmp_path,
         fake_ps2pdf,
@@ -317,7 +303,7 @@ class TestGenerator:
             ).touch(),
         )
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint=fake_s3_endpoint,
             s3_source_path=fake_s3_source_path,
@@ -338,7 +324,7 @@ class TestGenerator:
             "01-FAKE_REGION_2023_local.pdf",
         }
 
-    def test_fetch_from_s3(
+    async def test_fetch_from_s3(
         self,
         tmp_path,
         fake_ps2pdf,
@@ -364,7 +350,7 @@ class TestGenerator:
             ]
         )
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint=fake_s3_endpoint,
             s3_source_path=fake_s3_source_path,
@@ -379,7 +365,7 @@ class TestGenerator:
         assert fake_s3_fetch_ouvrage.call_count() == 1
         assert fake_s3_fetch_ouvrage.first_call.args == fake_process.calls[0]
 
-    def test_write_in_s3(
+    async def test_write_in_s3(
         self,
         tmp_path,
         fake_ps2pdf,
@@ -422,7 +408,7 @@ class TestGenerator:
             occurrences=4,
         )
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint=fake_s3_endpoint,
             s3_source_path=fake_s3_source_path,
@@ -463,7 +449,7 @@ class TestGenerator:
             assert write_in_s3_call[-2].startswith(fake_source_prefix)
             assert write_in_s3_call[-1].startswith(fake_destination_prefix)
 
-    def test_eps_common(
+    async def test_eps_common(
         self, tmp_path, fake_ps2pdf, fake_saxon, fake_ahformatter, mock_bootstrap_assets
     ):
         folder_eps = tmp_path / "commun"
@@ -474,7 +460,7 @@ class TestGenerator:
         (folder_eps / "illustrations" / "eps" / "fake2.eps").touch()
         (folder_eps / "illustrations" / "eps" / "fake3.eps").touch()
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -497,7 +483,7 @@ class TestGenerator:
             assert Path(eps_path).stem == Path(pdf_path).stem
             assert Path(pdf_path).suffix == ".pdf"
 
-    def test_eps_ouvrage(
+    async def test_eps_ouvrage(
         self, tmp_path, fake_ps2pdf, fake_saxon, fake_ahformatter, mock_bootstrap_assets
     ):
         (tmp_path / "fake_uuid" / "g4" / "illustrations" / "eps").mkdir(parents=True)
@@ -507,7 +493,7 @@ class TestGenerator:
             tmp_path / "fake_uuid" / "g4" / "illustrations" / "eps" / ".toignore.eps"
         ).touch()
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -542,7 +528,7 @@ class TestGenerator:
                 / (stem + ".pdf")
             )
 
-    def test_cleanup(
+    async def test_cleanup(
         self, tmp_path, fake_ps2pdf, fake_saxon, fake_ahformatter, mock_bootstrap_assets
     ):
         # Structure of an "ouvrage"
@@ -554,7 +540,7 @@ class TestGenerator:
         (tmp_path / "fake_uuid" / "g4" / "document.pdf").touch()
         (tmp_path / "fake_uuid" / "g4" / "returncode").touch()
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -572,7 +558,7 @@ class TestGenerator:
             tmp_path / "fake_uuid" / "g4" / "returncode",
         }
 
-    def test_cleanup_while_interrupted_progress(
+    async def test_cleanup_while_interrupted_progress(
         self,
         tmp_path,
         fake_process,
@@ -590,7 +576,7 @@ class TestGenerator:
         (tmp_path / "fake_uuid" / "g4" / "returncode").touch()
 
         with pytest.raises(CalledProcessError):
-            generate(
+            await generate(
                 tmp_path / "fake_uuid" / "g4",
                 s3_endpoint="https:/fake_s3_endpoint",
                 s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -603,7 +589,7 @@ class TestGenerator:
             tmp_path / "fake_uuid" / "g4" / "returncode",
         }
 
-    def test_compress(
+    async def test_compress(
         self,
         tmp_path,
         fake_ps2pdf,
@@ -632,7 +618,7 @@ class TestGenerator:
             ).touch(),
         )
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -649,7 +635,7 @@ class TestGenerator:
         assert not (tmp_path / "fake_uuid" / "g4" / "document_optimized.pdf").exists()
         assert (tmp_path / "fake_uuid" / "g4" / "document.pdf").exists()
 
-    def test_vignette(
+    async def test_vignette(
         self,
         tmp_path,
         fake_ps2pdf,
@@ -674,7 +660,7 @@ class TestGenerator:
             ]
         )
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -688,7 +674,7 @@ class TestGenerator:
 
         assert fake_process.calls[-1] == fake_vignette.first_call.args
 
-    def test_metadata(
+    async def test_metadata(
         self,
         tmp_path,
         fake_ps2pdf,
@@ -697,7 +683,7 @@ class TestGenerator:
         fake_saxon_metadata,
         mock_bootstrap_assets,
     ):
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",
@@ -721,7 +707,7 @@ class TestGenerator:
 
         assert fake_saxon_metadata.call_count() == 1
 
-    def test_etape_all_steps(self, tmp_path, fake_process):
+    async def test_etape_all_steps(self, tmp_path, fake_process):
         (tmp_path / "fake_uuid" / "g4" / "document_optimized.pdf").touch()
         (tmp_path / "commun").mkdir()
         (tmp_path / "source").mkdir()
@@ -729,7 +715,7 @@ class TestGenerator:
         fake_process.register([fake_process.any()])
         fake_process.keep_last_process(True)
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="fake_s3_endpoint",
             s3_source_path="fake_s3_source_path",
@@ -761,7 +747,7 @@ class TestGenerator:
             tmp_path / "fake_uuid" / "g4" / "displayable_step"
         ).read_text().splitlines() == expected_steps
 
-    def test_etape_some_steps(self, tmp_path, fake_process):
+    async def test_etape_some_steps(self, tmp_path, fake_process):
         (tmp_path / "fake_uuid" / "g4" / "document_optimized.pdf").touch()
         (tmp_path / "commun").mkdir()
         (tmp_path / "source").mkdir()
@@ -769,7 +755,7 @@ class TestGenerator:
         fake_process.register([fake_process.any()])
         fake_process.keep_last_process(True)
 
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="fake_s3_endpoint",
             s3_source_path="fake_s3_source_path",
@@ -797,21 +783,21 @@ class TestGenerator:
             tmp_path / "fake_uuid" / "g4" / "displayable_step"
         ).read_text().splitlines() == expected_steps
 
-    def test_interrupted_progress(self, tmp_path, fake_process):
+    async def test_interrupted_progress(self, tmp_path, fake_process):
         fake_process.register([fake_process.any()], returncode=1)
         fake_process.keep_last_process(True)
 
         with pytest.raises(CalledProcessError):
-            generate(
+            await generate(
                 tmp_path / "fake_uuid" / "g4",
                 s3_endpoint="fake_s3_endpoint",
                 s3_inputs_bucket="s3://fake_s3_inputs_bucket",
             )
 
-    def test_stderr(
+    async def test_stderr(
         self, tmp_path, fake_ps2pdf, fake_saxon, fake_ahformatter, mock_bootstrap_assets
     ):
-        generate(
+        await generate(
             tmp_path / "fake_uuid" / "g4",
             s3_endpoint="https://fake_s3_endpoint",
             s3_inputs_bucket="s3://fake_s3_inputs_bucket",

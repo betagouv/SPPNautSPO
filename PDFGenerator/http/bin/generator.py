@@ -9,7 +9,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
 
-import nest_asyncio
 from home.s3 import bootstrap_assets
 
 ROOT_PATH = Path(__file__).parent.parent.parent
@@ -57,7 +56,6 @@ class Generator:
     logger: logging.Logger = field(init=False)
 
     def __post_init__(self):
-        nest_asyncio.apply()
         self.logfile = self.ouvrage_path / LOG_FILENAME
         self.logger = logging.getLogger(self.ouvrage_path.name)
         self.logger.setLevel(logging.INFO)
@@ -98,17 +96,15 @@ class Generator:
             str((pdf_dir / (eps.stem + ".pdf")).resolve()),
         )
 
-    def _convert_eps_to_pdf(self, eps_ancestor: Path) -> None:
+    async def _convert_eps_to_pdf(self, eps_ancestor: Path) -> None:
         convert_tasks = (
             self._convert_single_eps_to_pdf(eps)
             for eps in eps_ancestor.rglob("[!.]*.eps")
         )
 
-        asyncio.run(
-            _gather_with_max_concurrency(
-                os.cpu_count(),
-                *convert_tasks,
-            )
+        await _gather_with_max_concurrency(
+            os.cpu_count(),
+            *convert_tasks,
         )
 
     def _copy_remote_folder(self, folder_name) -> None:
@@ -160,7 +156,7 @@ class Generator:
                 ],
             )
 
-    def _generate_pdfs(self) -> None:
+    async def _generate_pdfs(self) -> None:
         # AHFormatter run.sh writes the command invocation in stdout.
         pdf_tasks = (
             self._run_and_log_async(
@@ -176,7 +172,7 @@ class Generator:
             )
             for fo in (self.ouvrage_path / "xml").glob("*.fo")
         )
-        asyncio.run(_gather_with_max_concurrency(os.cpu_count(), *pdf_tasks))
+        await _gather_with_max_concurrency(os.cpu_count(), *pdf_tasks)
 
     def _bundle_pdfs_if_needed(self) -> None:
         all_pdfs = list(self.ouvrage_path.glob("*.pdf"))
@@ -302,7 +298,7 @@ class Generator:
             ]
         )
 
-    def __call__(self):
+    async def __call__(self):
         displayable_step = self.ouvrage_path / "displayable_step"
 
         step_count = 7 + sum(
@@ -335,10 +331,10 @@ class Generator:
             self._copy_remote_folder("commun")
 
             progress.log_step("Conversion des illustrations communes")
-            self._convert_eps_to_pdf(self.ouvrage_path.parent / "commun")
+            await self._convert_eps_to_pdf(self.ouvrage_path.parent / "commun")
 
             progress.log_step("Conversion des illustrations de l'ouvrage")
-            self._convert_eps_to_pdf(self.ouvrage_path)
+            await self._convert_eps_to_pdf(self.ouvrage_path)
 
             progress.log_step("Récupération des sources communes")
             self._copy_source_folder()
@@ -347,7 +343,7 @@ class Generator:
             self._generate_fo()
 
             progress.log_step("Génération de l'ouvrage (PDF)")
-            self._generate_pdfs()
+            await self._generate_pdfs()
             self._bundle_pdfs_if_needed()
 
             if self.vignette:
@@ -370,8 +366,8 @@ class Generator:
                 self._cleanup_folders()
 
 
-def generate(*args, **kwargs):
-    Generator(*args, **kwargs)()
+async def generate(*args, **kwargs):
+    await Generator(*args, **kwargs)()
 
 
 if __name__ == "__main__":
@@ -385,4 +381,4 @@ if __name__ == "__main__":
     parser.add_argument("--vignette", action="store_true")
     parser.add_argument("--metadata", action="store_true")
     args = parser.parse_args()
-    generate(**vars(args))
+    asyncio.run(generate(**vars(args)))

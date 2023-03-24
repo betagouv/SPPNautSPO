@@ -223,9 +223,9 @@ markupsafe==2.1.1 \
     # via
     #   jinja2
     #   werkzeug
-moto[s3]==4.1.4 \
-    --hash=sha256:304cb19eee0019cd13f7d87ca590a4694677469c383ab8f8439fcb6717c47037 \
-    --hash=sha256:f9bf72aec6aea49ebb1a46c8096b2c9629be58ecca3ecd8b51f781fea78148e2
+moto[s3]==4.1.5 \
+    --hash=sha256:363577f7a0cdf639852420f6ba5caa9aa3c90a688feae6315f8ee4bf324b8c27 \
+    --hash=sha256:63542b7b9f307b00fae460b42d15cf9346de3ad3b1287fba38fc68f3c05e4da4
     # via -r dev-requirements.in
 mypy-extensions==0.4.3 \
     --hash=sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d \

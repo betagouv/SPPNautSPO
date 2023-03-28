@@ -1,4 +1,5 @@
 awscli
 python-decouple
+retry
 sentry-sdk
 watchdog

@@ -13,6 +13,7 @@ from stat import filemode
 
 import sentry_sdk
 from decouple import config
+from retry import retry
 from watchdog.events import LoggingEventHandler, PatternMatchingEventHandler
 from watchdog.observers import Observer
 
@@ -54,6 +55,7 @@ class S3UploadHandler(PatternMatchingEventHandler):
         )
         return f"s3://{self.s3_bucket}/{relative_path}"
 
+    @retry(subprocess.CalledProcessError, tries=3, delay=1)
     def _upload(self, file_to_upload: str) -> None:
         path_to_upload = Path(file_to_upload)
         if not path_to_upload.exists():

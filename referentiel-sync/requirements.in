@@ -1,5 +1,5 @@
 awscli
 python-decouple
-retry
 sentry-sdk
+tenacity
 watchdog

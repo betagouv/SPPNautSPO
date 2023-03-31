@@ -223,9 +223,9 @@ markupsafe==2.1.1 \
     # via
     #   jinja2
     #   werkzeug
-moto[s3]==4.1.5 \
-    --hash=sha256:363577f7a0cdf639852420f6ba5caa9aa3c90a688feae6315f8ee4bf324b8c27 \
-    --hash=sha256:63542b7b9f307b00fae460b42d15cf9346de3ad3b1287fba38fc68f3c05e4da4
+moto[s3]==4.1.6 \
+    --hash=sha256:cfe398a1f6e317d061c47c3d2dd8c6893f3eb49154984a7cbb8bcd4ba517d67d \
+    --hash=sha256:fdcc2731212ca050a28b2bc83e87628294bcbd55cb4f4c4692f972023fb1e7e6
     # via -r dev-requirements.in
 mypy-extensions==0.4.3 \
     --hash=sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d \
@@ -249,6 +249,10 @@ pluggy==1.0.0 \
     --hash=sha256:4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159 \
     --hash=sha256:74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3
     # via pytest
+py-partiql-parser==0.1.0 \
+    --hash=sha256:03ef60b871ee341204775201918b27da611b7b0ddfa63688ca393d5ea8ed2a26 \
+    --hash=sha256:daaa5902a32b3161b057bd94b86768a282703ccc03b73f3a85c5f5888dd5b88c
+    # via moto
 pycparser==2.21 \
     --hash=sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9 \
     --hash=sha256:e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206

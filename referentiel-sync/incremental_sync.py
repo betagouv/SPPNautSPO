@@ -56,8 +56,8 @@ class S3UploadHandler(PatternMatchingEventHandler):
         return f"s3://{self.s3_bucket}/{relative_path}"
 
     @retry(
-        stop=stop_after_attempt(3),
-        wait=wait_fixed(1),
+        stop=stop_after_attempt(5),
+        wait=wait_fixed(.2),
         retry=retry_if_exception_type(subprocess.CalledProcessError),
         reraise=True, 
     )

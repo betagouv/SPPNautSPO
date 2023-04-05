@@ -136,7 +136,7 @@ def publication(request, generation_id):
 
         for line in stderr:
             logging.warning(line)
-        logging.error(f"Publication {publication_path.name} failed to generate")
+        logging.error("Publication %s failed to generate", publication_path.name)
 
         non_python_stderr = [
             stderr_line

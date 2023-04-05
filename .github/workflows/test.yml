@@ -24,6 +24,7 @@ jobs:
         run: pytest unit_tests
 
       - name: Check code formatting
+        working-directory: '.'
         run: black --check --diff .
 
   integration:

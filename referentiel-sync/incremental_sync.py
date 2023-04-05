@@ -13,6 +13,7 @@ from stat import filemode
 
 import sentry_sdk
 from decouple import config
+from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_fixed
 from watchdog.events import LoggingEventHandler, PatternMatchingEventHandler
 from watchdog.observers import Observer
 
@@ -54,6 +55,12 @@ class S3UploadHandler(PatternMatchingEventHandler):
         )
         return f"s3://{self.s3_bucket}/{relative_path}"
 
+    @retry(
+        stop=stop_after_attempt(5),
+        wait=wait_fixed(0.2),
+        retry=retry_if_exception_type(subprocess.CalledProcessError),
+        reraise=True,
+    )
     def _upload(self, file_to_upload: str) -> None:
         path_to_upload = Path(file_to_upload)
         if not path_to_upload.exists():
@@ -83,21 +90,14 @@ class S3UploadHandler(PatternMatchingEventHandler):
         try:
             awscli.check_returncode()
         except subprocess.CalledProcessError:
-            # os.access might raise an exception because the file disappeared while awscli was uploading
-            can_read_file = os.access(path_to_upload, os.R_OK)
+            if "Skipping file" in awscli.stdout.decode():
+                # AWS can't read the file
+                # we skip it until the next Ffile system notification
+                # when the file will be available.
+                logging.warning("Skipping file: %s", path_to_upload)
+                return
 
-            if can_read_file:
-                # We can read file but somehow awscli failed so we raise the awscli issue
-                raise
-
-            statinfo = path_to_upload.stat()
-            logging.error(
-                "No permission to read %(path_to_upload)s" " - File mode: %(filemode)s",
-                {
-                    "path_to_upload": path_to_upload,
-                    "filemode": filemode(statinfo.st_mode),
-                },
-            )
+            raise
 
     def dispatch(self, event):
         # We don't want failing commands to crash our process. So we just report exceptions.

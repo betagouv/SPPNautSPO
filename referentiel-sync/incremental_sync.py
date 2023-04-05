@@ -13,8 +13,7 @@ from stat import filemode
 
 import sentry_sdk
 from decouple import config
-from tenacity import (retry, retry_if_exception_type, stop_after_attempt,
-                      wait_fixed)
+from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_fixed
 from watchdog.events import LoggingEventHandler, PatternMatchingEventHandler
 from watchdog.observers import Observer
 
@@ -58,7 +57,7 @@ class S3UploadHandler(PatternMatchingEventHandler):
 
     @retry(
         stop=stop_after_attempt(5),
-        wait=wait_fixed(.2),
+        wait=wait_fixed(0.2),
         retry=retry_if_exception_type(subprocess.CalledProcessError),
         reraise=True,
     )
@@ -99,7 +98,6 @@ class S3UploadHandler(PatternMatchingEventHandler):
                 return
 
             raise
-
 
     def dispatch(self, event):
         # We don't want failing commands to crash our process. So we just report exceptions.

@@ -16,8 +16,6 @@ dependencies = [
     "procrastinate==0.27.0",
     "python-decouple==3.8",
     "sentry-sdk==1.19.0",
-    "tenacity==8.2.2",
-    "watchdog==2.1.9",
 ]
 
 [project.optional-dependencies]
@@ -32,14 +30,6 @@ dev = [
     "requests==2.28.1",
     "time-machine==2.9.0",
 ]
-referentiel-sync = [
-    "awscli==1.25.59",
-    "python-decouple==3.8",
-    "sentry-sdk==1.19.0",
-    "tenacity==8.2.2",
-    "watchdog==2.1.9",
-]
-
 
 [tool.setuptools]
 packages = []

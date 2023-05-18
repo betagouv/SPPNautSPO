@@ -1,8 +1,0 @@
-awscli
-boto3
-Django
-django-cors-headers
-gunicorn
-procrastinate
-python-decouple
-sentry-sdk

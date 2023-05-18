@@ -6,14 +6,9 @@ Dans l'environnement virtuel de votre choix (python > 3.10), installez pip-tools
 python -m pip install pip-tools
 ```
 
-Les dépendances sont décrites dans `requirements.in` et `dev-requirements.in` pour les dépendences propres à l'environnement de dev (comme son nom l'indique). \
+Les dépendances sont décrites dans `pyproject.toml`.
 
-Générer les fichiers `requirements.txt` et `dev-requirements.txt`
-
-```sh
-pip-compile --generate-hashes requirements.in
-pip-compile --generate-hashes dev-requirements.in
-```
+Pour générer les fichiers `requirements.txt` et `dev-requirements.txt`, recopiez les commandes indiqués dans l'entête de ces fichiers.
 
 Puis installer les dépendances avec pip (nécessaire pour faire tourner les tests et les hooks de pre-commit)
 

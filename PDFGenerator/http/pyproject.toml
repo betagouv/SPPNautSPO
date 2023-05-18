@@ -22,7 +22,7 @@ dependencies = [
 dev = [
     "black==23.3.0",
     "moto[s3]==4.1.9",
-    "pytest==7.2.2",
+    "pytest==7.3.1",
     "pytest-asyncio==0.21.0",
     "pytest-django==4.5.2",
     "pytest-dotenv==0.5.2",

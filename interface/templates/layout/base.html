@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr" class="sn-scroll-smooth">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots" content="{% block robots %}noindex, nofollow{% endblock %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!--Title and desc-->
+
+        <title>{% block page_title %}{% endblock%} - SPPNaut</title>
+        <meta name="description" content="{% block page_description %}Plateforme de publication nautique du SHOM{% endblock %}">
+
+        {% block meta %}{% endblock %}
+
+        <!--Favicon-->
+        <link rel="shortcut icon" href="{% static "favicon.ico" %}" type="image/x-icon"><!-- 32×32 -->
+
+        <!--Css-->
+
+        <link rel="stylesheet" href="{% static 'sppnaut.css' %}">
+        {% block extra_css %}{% endblock %}
+    </head>
+
+    <body>
+        {% block header %}
+            {% include "layout/header.html" %}
+        {% endblock %}
+        <main role="main">
+            {% block main %}
+            <div class="fr-container--fluid ds_banner">
+                <div class="fr-container">
+                    <div class="fr-grid-row fr-grid-row--gutters fr-py-6w">
+                        <div class="fr-col-12 fr-mb-2w">
+                            {% block content %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        </main>
+        {% block footer %}
+            {% include "layout/footer.html" %}
+        {% endblock %}
+
+        <!-- Matomo -->
+        <script>
+            var _paq = (window._paq = window._paq || []);
+            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+            _paq.push(["trackPageView"]);
+            _paq.push(["enableLinkTracking"]);
+            (function () {
+                var u = "https://stats.data.gouv.fr/";
+                _paq.push(["setTrackerUrl", u + "piwik.php"]);
+                _paq.push(["setSiteId", "254"]);
+                var d = document,
+                    g = d.createElement("script"),
+                    s = d.getElementsByTagName("script")[0];
+                g.async = true;
+                g.src = u + "piwik.js";
+                s.parentNode.insertBefore(g, s);
+            })();
+        </script>
+        <!-- End Matomo Code -->
+
+        <script type="module" src="{% static "sppnaut.js" %}"></script>
+        {% block js %}{% endblock %}
+    </body>
+</html>

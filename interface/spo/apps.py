@@ -1,12 +1,12 @@
 """
-Home APP config file
+SPO APP config file
 """
 from django.apps import AppConfig
 
 
-class HomeConfig(AppConfig):
+class SPOConfig(AppConfig):
     """
-    Home APP Class config file
+    SPO APP Class config file
     """
 
     default_auto_field = "django.db.models.BigAutoField"

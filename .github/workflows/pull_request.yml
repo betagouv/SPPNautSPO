@@ -9,3 +9,6 @@ jobs:
   test:
     uses: ./.github/workflows/test.yml
     secrets: inherit
+  test_interface:
+    uses: ./.github/workflows/test_interface.yml
+    secrets: inherit

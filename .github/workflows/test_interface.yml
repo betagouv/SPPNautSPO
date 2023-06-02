@@ -1,0 +1,68 @@
+on:
+  workflow_call:
+
+defaults:
+  run:
+    shell: bash
+    working-directory: interface
+
+jobs:
+  python_interface:
+    name: Interface python lint and tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgis/postgis:14-3.3-alpine
+        env:
+          POSTGRES_USER: sppnaut
+          POSTGRES_PASSWORD: sppnaut
+          POSTGRES_DB: sppnaut
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 1s
+          --health-timeout 1s
+          --health-retries 50
+        ports:
+          - 5434:5432
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          cache: "pip"
+
+      - name: Install GIS Packages
+        run: sudo apt-get install gdal-bin
+
+      - name: Install Dependencies
+        run: pip install --require-hashes --no-deps -r requirements.txt -r dev-requirements.txt
+
+      - name: Run unit tests
+        run: pytest unit_tests
+
+      - name: Check code formatting
+        run: black --check --diff .
+
+  node_interface:
+    name: Interface node lint and build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # setup node in subdirectory : https://naomiaro.hashnode.dev/nodejs-ci-github-action
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: "interface/.tool-versions"
+          cache: "npm"
+          cache-dependency-path: "interface/package-lock.json"
+
+      - name: Build assets
+        run: |
+          npm ci
+          npm run build
+
+      - name: Check code formatting
+        run: npm run lint

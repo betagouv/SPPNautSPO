@@ -22,9 +22,9 @@ attrs==22.1.0 \
     # via
     #   procrastinate
     #   pytest
-awscli==1.25.59 \
-    --hash=sha256:90d43a019b325bf1bf18fb37570b6e70443bd6135ad57b0d8e7fab754474db61 \
-    --hash=sha256:b812a93f9361d59a13355501b20a643126cd4cde36b1f1772cc6aeace28d8028
+awscli==1.27.146 \
+    --hash=sha256:1ab08b6c992ebb385ebc07f52125f88a1ae37abef58635f85a5e1e5e1f9ccc32 \
+    --hash=sha256:ed357609af097d74eb456f323de6e85e4d55f37a885046aad8b21eb382cbc790
     # via sppnaut-generator (pyproject.toml)
 black==23.3.0 \
     --hash=sha256:064101748afa12ad2291c2b91c960be28b817c0c7eaa35bec09cc63aa56493c5 \

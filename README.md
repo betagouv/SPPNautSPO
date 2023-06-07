@@ -1,4 +1,4 @@
-# SPPNaut
+# SPPNaut Generator
 
 Modernisation de la chaîne de production des publications nautiques
 
@@ -18,7 +18,7 @@ cp .env.template .env
 
 Dans les autres environnements, prenez exemple sur le fichier `.env.template` pour configurer vos variables d'environnement sur l'environnement d'execution.
 
-La base de données est utilisée pour l'administration des tâches déléguées par la librairie `procrastinate`.
+La base de données est utilisée pour l'administration des tâches déléguées par la librairie `procrastinate` et les tables d'administration de django pour assurer l'authentification.
 
 ### Variables d'environnements
 
@@ -29,7 +29,11 @@ Initialiser les 3 variables d'environnement suivantes dans le fichier [.env](PDF
 
 ### Readme PDFGenerator/http
 
-Suivre les instructions du fichier [Readme](PDFGenerator/http/README.md) incluses dans PDFGenerator/http.
+Suivre les instructions du fichier [Readme](PDFGenerator/http/README.md) incluses dans PDFGenerator/http pour lancer le server de backend.
+
+### Readme interface
+
+Suivre les instructions du fichier [Readme](interface/README.md) incluses dans interface pour lancer le server de frontend.
 
 ### Readme referentiel-sync
 

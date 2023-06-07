@@ -6,9 +6,13 @@ on:
   pull_request:
 
 jobs:
-  test:
+  test_pdfgenerator:
     uses: ./.github/workflows/test_pdfgenerator.yml
     secrets: inherit
   test_interface:
     uses: ./.github/workflows/test_interface.yml
+    secrets: inherit
+  deploy_interface:
+    uses: ./.github/workflows/deploy_interface.yml
+    needs: test_interface
     secrets: inherit

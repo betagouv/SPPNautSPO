@@ -16,7 +16,7 @@ env:
 
 jobs:
   test:
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/test_pdfgenerator.yml
     secrets: inherit
 
   deploy:

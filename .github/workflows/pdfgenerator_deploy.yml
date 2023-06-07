@@ -4,9 +4,15 @@ on:
 defaults:
   run:
     shell: bash
+    working-directory: interface
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  APP_ID: app_e77e446e-754a-433d-8f8f-fe339d699a75
 
 jobs:
-  deploy:
+  pdfgenerator_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

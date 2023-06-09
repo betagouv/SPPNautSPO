@@ -6,6 +6,6 @@ on:
   pull_request:
 
 jobs:
-  test_pdfgenerator:
+  test:
     uses: ./.github/workflows/pdfgenerator_test.yml
     secrets: inherit

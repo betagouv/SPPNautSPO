@@ -7,8 +7,8 @@ defaults:
     working-directory: interface
 
 jobs:
-  python_interface:
-    name: Interface python lint and tests
+  python:
+    name: Python lint and tests
     runs-on: ubuntu-latest
 
     services:
@@ -45,8 +45,8 @@ jobs:
       - name: Check code formatting
         run: black --check --diff .
 
-  node_interface:
-    name: Interface node lint and build
+  node:
+    name: Node lint and build
     runs-on: ubuntu-latest
 
     steps:

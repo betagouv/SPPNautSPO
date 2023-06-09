@@ -6,6 +6,6 @@ on:
   pull_request:
 
 jobs:
-  test_interface:
+  test:
     uses: ./.github/workflows/interface_test.yml
     secrets: inherit

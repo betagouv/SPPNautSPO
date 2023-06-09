@@ -15,11 +15,11 @@ env:
   APP_ID: app_e77e446e-754a-433d-8f8f-fe339d699a75
 
 jobs:
-  test_pdfgenerator:
+  test:
     uses: ./.github/workflows/pdfgenerator_test.yml
     secrets: inherit
 
-  deploy_pdfgenerator:
+  deploy:
     uses: ./.github/workflows/pdfgenerator_deploy.yml
-    needs: test_pdfgenerator
+    needs: test
     secrets: inherit

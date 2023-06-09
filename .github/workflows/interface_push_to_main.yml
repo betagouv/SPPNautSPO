@@ -15,11 +15,11 @@ env:
   APP_ID: app_e77e446e-754a-433d-8f8f-fe339d699a75
 
 jobs:
-  test_interface:
+  test:
     uses: ./.github/workflows/interface_test.yml
     secrets: inherit
 
-  deploy_interface:
+  deploy:
     uses: ./.github/workflows/interface_deploy.yml
-    needs: test_interface
+    needs: test
     secrets: inherit

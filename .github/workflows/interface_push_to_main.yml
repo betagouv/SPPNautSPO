@@ -11,11 +11,6 @@ on:
 
 concurrency: deploy
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-  APP_ID: app_e77e446e-754a-433d-8f8f-fe339d699a75
-
 jobs:
   test:
     uses: ./.github/workflows/interface_test.yml

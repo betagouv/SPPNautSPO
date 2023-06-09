@@ -4,6 +4,8 @@ name: Interface > Pull request
 
 on:
   pull_request:
+    paths:
+      - "interface/**"
 
 jobs:
   test:

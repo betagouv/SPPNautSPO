@@ -4,6 +4,8 @@ name: PDF Generator > Pull request
 
 on:
   pull_request:
+    paths:
+      - "PDFGenerator/**"
 
 jobs:
   test:

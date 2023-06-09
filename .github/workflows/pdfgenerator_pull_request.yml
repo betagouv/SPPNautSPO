@@ -1,11 +1,11 @@
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 
-name: Pull request
+name: PDF Generator > Pull request
 
 on:
   pull_request:
 
 jobs:
   test:
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/pdfgenerator_test.yml
     secrets: inherit

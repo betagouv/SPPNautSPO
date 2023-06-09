@@ -1,0 +1,27 @@
+on:
+  workflow_call:
+
+defaults:
+  run:
+    shell: bash
+    working-directory: interface
+
+jobs:
+  deploy:
+    name: Deploy to Clever Cloud
+    runs-on: ubuntu-latest
+    steps:
+      # This action requires an unshallow working copy,
+      # so the following prerequisites are necessary:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      # Deploy your application
+      - uses: 47ng/actions-clever-cloud@v1.3.1
+        with:
+          appID: app_c340385d-8176-4de9-80ed-a79a0ac9ba1f
+          force: true
+        env:
+          CLEVER_TOKEN: ${{ secrets.CLEVER_TOKEN }}
+          CLEVER_SECRET: ${{ secrets.CLEVER_SECRET }}

@@ -1,0 +1,11 @@
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+name: Interface > Pull request
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    uses: ./.github/workflows/interface_test.yml
+    secrets: inherit

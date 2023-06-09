@@ -1,0 +1,22 @@
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+name: Interface > Push to Main
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "interface/**"
+
+concurrency: deploy
+
+jobs:
+  test:
+    uses: ./.github/workflows/interface_test.yml
+    secrets: inherit
+
+  deploy:
+    uses: ./.github/workflows/interface_deploy.yml
+    needs: test
+    secrets: inherit

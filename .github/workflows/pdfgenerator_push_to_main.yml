@@ -1,0 +1,22 @@
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+name: PDF Generator > Push to Main
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "PDFGenerator/**"
+
+concurrency: deploy
+
+jobs:
+  test:
+    uses: ./.github/workflows/pdfgenerator_test.yml
+    secrets: inherit
+
+  deploy:
+    uses: ./.github/workflows/pdfgenerator_deploy.yml
+    needs: test
+    secrets: inherit

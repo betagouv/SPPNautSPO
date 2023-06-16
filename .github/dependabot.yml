@@ -14,3 +14,9 @@ updates:
       interval: "weekly"
       day: "wednesday"
       time: "06:00" # UTC
+  - package-ecosystem: "github-actions"
+    directory: "/interface"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "06:00" # UTC

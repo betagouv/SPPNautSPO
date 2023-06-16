@@ -14,3 +14,21 @@ updates:
       interval: "weekly"
       day: "wednesday"
       time: "06:00" # UTC
+  - package-ecosystem: "pip"
+    directory: "/interface"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "06:00" # UTC
+  - package-ecosystem: "npm"
+    directory: "/interface"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "06:00" # UTC
+  - package-ecosystem: "pip"
+    directory: "/referentiel-sync"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "06:00" # UTC

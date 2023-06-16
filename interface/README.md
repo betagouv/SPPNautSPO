@@ -1,17 +1,21 @@
-# SPPNaut
+# SPPNaut Interface
 
-SPPNaut est une startup d'Etat dont la mission est la modernisaton et l'ouverture des publications nautiques.
+Cette application sert d'interface au backend de génération de ces publications.
 
-## Dévéloppement
+## Développement
 
-### Prerequis
+L'application est basée sur :
 
-Pour faire tourner l'interface en local, il est conseiller d'utiliser :
+-   [Django](https://www.djangoproject.com) pour le backend
+-   [DSFR](https://www.systeme-de-design.gouv.fr) pour les composants frontend
+
+## Pré-requis
+
+Pour faire fonctionner l'interface en local, il est recommandé d'utiliser :
 
 -   Python >= 3.10
--   docker et docker-compose pour faire tourner la base de données Postgresql (cf. [SPPNautGenerator](https://github.com/betagouv/SPPNautGenerator))
 
-### Installation
+## Installation
 
 1. Création et activation de votre environnement virtuel. Par exemple via ces commandes :
 
@@ -46,6 +50,8 @@ Pour faire tourner l'interface en local, il est conseiller d'utiliser :
 1. Installation des dépendances JS
 
     `npm install`
+
+## Exécution
 
 1. Lancement des serveurs de développement
 

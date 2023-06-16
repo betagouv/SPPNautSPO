@@ -20,9 +20,9 @@ attrs==22.1.0 \
     --hash=sha256:29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6 \
     --hash=sha256:86efa402f67bf2df34f51a335487cf46b1ec130d02b8d39fd248abfd30da551c
     # via procrastinate
-awscli==1.25.59 \
-    --hash=sha256:90d43a019b325bf1bf18fb37570b6e70443bd6135ad57b0d8e7fab754474db61 \
-    --hash=sha256:b812a93f9361d59a13355501b20a643126cd4cde36b1f1772cc6aeace28d8028
+awscli==1.27.154 \
+    --hash=sha256:43eb1f99d9de806a1f2fa745af3ee135d01b2157fab01e1dff51181b4cedbab2 \
+    --hash=sha256:6905fd8807ae5f63c52ff7924f52401bb20f4e7b4efbabeca1426536265ecbe8
     # via sppnaut-generator (pyproject.toml)
 boto3==1.24.58 \
     --hash=sha256:8a888707586de7eb4ea367a4c51354d91efbe93c2e61dc02e5c98f8c8dc69584 \

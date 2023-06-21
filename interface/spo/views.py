@@ -135,7 +135,6 @@ def publication_generation_ended(request, generation_id):
     return _forward_http_file(response)
 
 
-@login_required
 @require_GET
 def ouvrages_by_name(request):
     ouvrages_from_generator = generator.get(

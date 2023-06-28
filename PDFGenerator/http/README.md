@@ -10,7 +10,9 @@ Elle est basée sur :
 
 Pour faire fonctionner l'interface en local, il est recommandé d'utiliser :
 
--   Python >= 3.10
+-   Python 3
+  
+Se référer aux fichiers `.python-version` ou `Dockerfile` pour connaître les versions supportées 
 
 ## Installation avec pip-tools
 

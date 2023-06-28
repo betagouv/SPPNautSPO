@@ -20,7 +20,6 @@ Le projet suit un architecture _monorepo_. Il est découpé en trois application
 -   Docker-compose
 -   Python >= 3.10
 
-
 ### Variables d'environnement
 
 En développement, copier le template des variables d'environnement :
@@ -81,7 +80,6 @@ Suivre les instructions du fichier [Readme](referentiel-sync/README.md) incluses
 ## Collecte des licenses des dépendances utilisées par nos applicatifs
 
 On utilise pip-licenses: comme décrit sur le projet [SPPNaut Carting](https://github.com/betagouv/SPPNautInterface/#readme)
-
 
 # Services utilisés par l'équipe de développement
 

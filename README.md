@@ -6,9 +6,9 @@ SPPNaut est une startup d'Etat dont la mission est la modernisaton de la chaîne
 
 Le projet suit un architecture _monorepo_. Il est découpé en trois applications distinctes :
 
--   **PDFGenerator** : l'application backend assurant la génération d'ouvrages.
--   **interface** : l'interface permettant de déclencher la génération d'ouvrages.
--   **referentiel-sync** : l'application backend assurant la synchronisation entre le SHOM et le bucket des ouvrages en production.
+-   **PDFGenerator** : le serveur backend assurant la génération manuelle ou périodique d'ouvrages.
+-   **interface** : le serveur permettant de consulter ou lancer la génération d'ouvrages.
+-   **referentiel-sync** : le démon recopiant un système de fichiers au SHOM dans des buckets S3.
 
 ![Schéma d'architecture](./docs/schema.jpg)
 

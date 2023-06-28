@@ -35,7 +35,7 @@ python -m awscli configure set default.s3.signature_version s3
 
 ### Execution
 
-### Synchronisation complète
+#### Synchronisation complète
 
 Attention: pensez à préciser le sous dossier `referentiel` dans l'option `referentiel_local_path` pour que le contenu du référentiel soit synchronisé sans la mention `referentiel` dans le chemin S3.
 

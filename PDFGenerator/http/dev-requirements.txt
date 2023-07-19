@@ -262,9 +262,9 @@ markupsafe==2.1.1 \
     # via
     #   jinja2
     #   werkzeug
-moto[s3]==4.1.9 \
-    --hash=sha256:d4bb629686b8b92e480f9784316bd0f379b148a5caee7c07aecbde6033a885e1 \
-    --hash=sha256:d9f5d0e3d027df350ff3552da851644ce192cbf7e7a9e8766fca4b5b6b550df0
+moto[s3]==4.1.13 \
+    --hash=sha256:9650d05d89b6f97043695548fbc0d8fb293f4177daaebbcee00bb0d171367f1a \
+    --hash=sha256:dd3e2ad920ab8b058c4f62fa7c195b788bd1f018cc701a1868ff5d5c4de6ed47
     # via sppnaut-generator (pyproject.toml)
 mypy-extensions==0.4.3 \
     --hash=sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d \

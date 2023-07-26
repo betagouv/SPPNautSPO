@@ -367,9 +367,9 @@ psycopg2-binary==2.9.5 \
     # via
     #   aiopg
     #   procrastinate
-py-partiql-parser==0.1.0 \
-    --hash=sha256:03ef60b871ee341204775201918b27da611b7b0ddfa63688ca393d5ea8ed2a26 \
-    --hash=sha256:daaa5902a32b3161b057bd94b86768a282703ccc03b73f3a85c5f5888dd5b88c
+py-partiql-parser==0.3.5 \
+    --hash=sha256:02e3ee3d8da8b08a602dc2f45fd53bad93bab1aabf4b4c548d98346de3f728d9 \
+    --hash=sha256:c975a00b799fb06e61a7c6a4d6319d600aabcca63f5dbbcca0a7f95e17ecec19
     # via moto
 pyasn1==0.4.8 \
     --hash=sha256:39c7e2ec30515947ff4e87fb6f456dfc6e84857d34be479c9d4a4ba4bf46aa5d \

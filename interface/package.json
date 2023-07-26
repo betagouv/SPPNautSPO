@@ -32,7 +32,7 @@
         ]
     },
     "dependencies": {
-        "@gouvfr/dsfr": "^1.7.2",
+        "@gouvfr/dsfr": "^1.10.0",
         "parcel": "^2.8.3",
         "prettier": "^2.8.8",
         "tailwindcss": "^3.3.2"

@@ -10,7 +10,7 @@ version = "0.1"
 dependencies = [
     "awscli==1.27.154",
     "boto3==1.24.58",
-    "django==4.1.9",
+    "django==4.2.4",
     "django-cors-headers==3.14.0",
     "gunicorn==20.1.0",
     "procrastinate==0.27.0",

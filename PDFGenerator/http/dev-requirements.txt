@@ -178,9 +178,9 @@ cryptography==41.0.1 \
     --hash=sha256:eb8163f5e549a22888c18b0d53d6bb62a20510060a22fd5a995ec8a05268df8a \
     --hash=sha256:f73bff05db2a3e5974a6fd248af2566134d8981fd7ab012e5dd4ddb1d9a70699
     # via moto
-django==4.1.9 \
-    --hash=sha256:adae3a952fd86800094ae6f64aa558572e8b4ba8dfe21f0ed8175147e75a72a1 \
-    --hash=sha256:e9f074a84930662104871bfcea55c3c180c50a0a47739db82435deae6cbaf032
+django==4.2.4 \
+    --hash=sha256:7e4225ec065e0f354ccf7349a22d209de09cc1c074832be9eb84c51c1799c432 \
+    --hash=sha256:860ae6a138a238fc4f22c99b52f3ead982bb4b1aad8c0122bcd8c8a3a02e409d
     # via
     #   django-cors-headers
     #   sppnaut-generator (pyproject.toml)

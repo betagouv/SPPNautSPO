@@ -4,9 +4,9 @@
 #
 #    pip-compile --generate-hashes --output-file=requirements.txt pyproject.toml
 #
-awscli==1.25.56 \
-    --hash=sha256:a2dc2813f8829f0ff35b6fde67c1cd565da76772592b727cb76fbd6ee997c9ed \
-    --hash=sha256:f1b4a3ad8c86c8e7cb7119fed32850f1b7e4b7d3bf55f864d3b3dc1260c0d168
+awscli==1.29.27 \
+    --hash=sha256:3548bb569c787c65162e0bc23b9c17fceb98e0941dbe7855e38905e72978cac4 \
+    --hash=sha256:8459b0f114b097c9029819d70e2583483f6ca5e165bc2f5e234e5e4777274043
     # via referentiel-sync (pyproject.toml)
 botocore==1.27.55 \
     --hash=sha256:0b4a17e81c17845245c0e7a3fbf83753c7f6a5544b93dcf6e0fcc0f3f2156ab2 \

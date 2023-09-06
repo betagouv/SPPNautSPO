@@ -27,7 +27,7 @@ jobs:
           - 5434:5432
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v4
         with:
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # setup node in subdirectory : https://naomiaro.hashnode.dev/nodejs-ci-github-action
       - uses: actions/setup-node@v3
